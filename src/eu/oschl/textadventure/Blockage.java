@@ -1,4 +1,5 @@
 package eu.oschl.textadventure;
 
-public class Blockage {
+public interface Blockage {
+    boolean canPass();
 }

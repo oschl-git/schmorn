@@ -1,21 +1,22 @@
 package eu.oschl.textadventure;
 
+import java.util.ArrayList;
+
 public class Game {
     private final String prologue;
     private final String epilogue;
 
-    private Player player;
-    private Room[] rooms;
-    private Passage[] passages;
-
+    private final Player player;
+    private ArrayList<Room> rooms;
     private Room currentRoom;
 
-    public Game(Room[] rooms, Room startingRoom, String prologue, String epilogue) {
-        this.player = new Player();
+    private ArrayList<String> gameState;
+
+    public Game(String prologue, String epilogue) {
         this.prologue = prologue;
         this.epilogue = epilogue;
-        this.rooms = rooms;
-        this.currentRoom = startingRoom;
+        this.player = new Player();
+        this.gameState = new ArrayList<>();
     }
 
     public String getPrologue() {
@@ -26,7 +27,11 @@ public class Game {
         return epilogue;
     }
 
-    public Room getCurrentRoom() {
-        return currentRoom;
+    public void addRoom(Room room) {
+        for (Passage passage : room.getPassages()) {
+            passage.setGame(this);
+        }
+
+        this.rooms.add(room);
     }
 }
