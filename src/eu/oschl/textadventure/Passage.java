@@ -1,6 +1,6 @@
 package eu.oschl.textadventure;
 
-import eu.oschl.textadventure.exceptions.IncorrectGameSetupExeception;
+import eu.oschl.textadventure.exceptions.IncorrectGameSetup;
 
 public class Passage {
     private Game game;
@@ -27,7 +27,7 @@ public class Passage {
         } else if (rooms[1] == null) {
             rooms[1] = room;
         } else {
-            throw new IncorrectGameSetupExeception("Attempted to add third room to passage");
+            throw new IncorrectGameSetup("Attempted to add third room to passage");
         }
     }
 
@@ -41,7 +41,7 @@ public class Passage {
         } else if (rooms[1] == room) {
             return rooms[0];
         } else {
-            throw new IncorrectGameSetupExeception("Neither room leading to accessed passage is the current room");
+            throw new IncorrectGameSetup("Neither room leading to accessed passage is the current room");
         }
     }
 }
