@@ -9,10 +9,9 @@ public class Game {
 
     private boolean runnning;
     private final Player player;
-    private ArrayList<Room> rooms;
+    private final ArrayList<Room> rooms;
     private Room currentRoom;
-
-    private ArrayList<String> gameState;
+    private final ArrayList<String> gameState;
 
     public Game(String prologue, String epilogue, String[] unknownCommandMessages) {
         this.prologue = prologue;
@@ -21,6 +20,7 @@ public class Game {
 
         this.runnning = true;
         this.player = new Player();
+        this.rooms = new ArrayList<>();
         this.gameState = new ArrayList<>();
     }
 
@@ -40,12 +40,20 @@ public class Game {
         return runnning;
     }
 
-    public void stop() {
+    public void finish() {
         this.runnning = false;
     }
 
     public void addRoom(Room room) {
         room.setGame(this);
         this.rooms.add(room);
+    }
+
+    public ArrayList<String> getGameState() {
+        return gameState;
+    }
+
+    public void addGameState(String state) {
+        this.gameState.add(state);
     }
 }

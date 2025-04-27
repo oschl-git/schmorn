@@ -1,14 +1,6 @@
 package eu.oschl.ui.console.commands;
 
-import eu.oschl.textadventure.Game;
-
 public class Quit implements Command {
-    private final Game game;
-
-    public Quit(Game game) {
-        this.game = game;
-    }
-
     @Override
     public String[] getTriggers() {
         return new String[]{
@@ -24,6 +16,6 @@ public class Quit implements Command {
 
     @Override
     public void execute(String[] args) {
-        game.stop();
+        System.exit(0);
     }
 }

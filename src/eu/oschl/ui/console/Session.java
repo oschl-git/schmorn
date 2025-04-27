@@ -23,6 +23,10 @@ public class Session {
         while (game.isRunning()) {
             var input = Console.readString(">");
 
+            if (input.isEmpty()) {
+                continue;
+            }
+
             try {
                 this.commandProcessor.processInput(input);
             } catch (InvalidInput e) {
