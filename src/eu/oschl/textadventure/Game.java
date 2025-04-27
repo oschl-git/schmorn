@@ -28,10 +28,7 @@ public class Game {
     }
 
     public void addRoom(Room room) {
-        for (Passage passage : room.getPassages()) {
-            passage.setGame(this);
-        }
-
+        room.setGame(this);
         this.rooms.add(room);
     }
 }
