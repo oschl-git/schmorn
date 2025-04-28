@@ -1,16 +1,18 @@
 package eu.oschl.textadventure;
 
+import eu.oschl.textadventure.objects.GameObject;
+
 import java.util.ArrayList;
 
 public class Room {
     private Game game;
 
-    private String name;
-    private String description;
+    private final String name;
+    private final String description;
 
-    private ArrayList<Passage> passages;
+    private final ArrayList<Passage> passages;
     private Blockage blockage;
-    private ArrayList<Object> objects;
+    private final ArrayList<GameObject> objects;
 
     public Room(String name, String description) {
         this.name = name;
@@ -25,17 +27,28 @@ public class Room {
         for (Passage passage : passages) {
             passage.setGame(game);
         }
+
+        if (blockage != null) {
+            blockage.setGame(game);
+        }
+
+        for (GameObject object : objects) {
+            object.setGame(game);
+        }
     }
 
     public void addPassage(Passage passage) {
+        passage.setGame(game);
         passages.add(passage);
     }
 
     public void setBlockage(Blockage blockage) {
+        blockage.setGame(game);
         this.blockage = blockage;
     }
 
-    public void addObject(Object object) {
+    public void addObject(GameObject object) {
+        object.setGame(game);
         objects.add(object);
     }
 }

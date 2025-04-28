@@ -11,7 +11,6 @@ public class Game {
     private final Player player;
     private final ArrayList<Room> rooms;
     private Room currentRoom;
-    private final ArrayList<String> gameState;
 
     public Game(String prologue, String epilogue, String[] unknownCommandMessages) {
         this.prologue = prologue;
@@ -21,7 +20,6 @@ public class Game {
         this.runnning = true;
         this.player = new Player();
         this.rooms = new ArrayList<>();
-        this.gameState = new ArrayList<>();
     }
 
     public String getPrologue() {
@@ -49,11 +47,15 @@ public class Game {
         this.rooms.add(room);
     }
 
-    public ArrayList<String> getGameState() {
-        return gameState;
+    public void setStartingRoom(Room room) {
+        this.currentRoom = room;
     }
 
-    public void addGameState(String state) {
-        this.gameState.add(state);
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
     }
 }
