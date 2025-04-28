@@ -5,23 +5,39 @@ import eu.oschl.textadventure.exceptions.IncorrectGameSetup;
 public class Passage {
     private Game game;
 
-    private String name;
-    private String description;
+    private final String name;
+    private final String description;
+    private final boolean seeThrough;
 
     private final Room[] rooms;
     private Blockage blockage;
 
-    public Passage(String name, String description) {
+    public Passage(String name, String description, boolean seeThrough) {
         this.name = name;
         this.description = description;
+        this.seeThrough = seeThrough;
         this.rooms = new Room[2];
+    }
+
+    public Passage(String name, boolean seeThrough) {
+        this(name, null, seeThrough);
     }
 
     public void setGame(Game game) {
         this.game = game;
+        this.blockage.setGame(game);
     }
 
     public void addRoom(Room room) {
+        room.addPassage(this);
+        room.setGame(game);
+
+        for (Room r : rooms) {
+            if (r == room) {
+                return;
+            }
+        }
+
         if (rooms[0] == null) {
             rooms[0] = room;
         } else if (rooms[1] == null) {
@@ -32,6 +48,7 @@ public class Passage {
     }
 
     public void setBlockage(Blockage blockage) {
+        blockage.setGame(game);
         this.blockage = blockage;
     }
 

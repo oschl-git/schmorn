@@ -7,11 +7,14 @@ public class Blockage {
     private final String description;
     private int requiredItemsToPass;
 
-    public Blockage(Game game, String name, String description, int requiredItemsToPass) {
-        this.game = game;
+    public Blockage(String name, String description, int requiredItemsToPass) {
         this.name = name;
         this.description = description;
         this.requiredItemsToPass = requiredItemsToPass;
+    }
+
+    public Blockage(String name, int requiredItemsToPass) {
+        this(name, null, requiredItemsToPass);
     }
 
     public void setGame(Game game) {

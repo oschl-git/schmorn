@@ -3,6 +3,7 @@ package eu.oschl.textadventure;
 import eu.oschl.textadventure.objects.GameObject;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Room {
     private Game game;
@@ -10,14 +11,14 @@ public class Room {
     private final String name;
     private final String description;
 
-    private final ArrayList<Passage> passages;
+    private final HashSet<Passage> passages;
     private Blockage blockage;
     private final ArrayList<GameObject> objects;
 
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
-        this.passages = new ArrayList<>();
+        this.passages = new HashSet<>();
         this.objects = new ArrayList<>();
     }
 
