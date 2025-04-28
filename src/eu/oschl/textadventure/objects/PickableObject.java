@@ -11,6 +11,11 @@ public class PickableObject extends GameObject {
         this.mustBeUsedIn = mustBeUsedIn;
     }
 
+    public void pickUp() {
+        game.getInventory().addItem(this);
+        game.getCurrentRoom().removeObject(this);
+    }
+
     @Override
     public boolean use() {
         if (mustBeUsedIn != null && mustBeUsedIn == game.getCurrentRoom()) {

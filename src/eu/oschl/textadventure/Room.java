@@ -47,8 +47,16 @@ public class Room {
         this.blockage = blockage;
     }
 
+    public ArrayList<GameObject> getObjects() {
+        return objects;
+    }
+
     public void addObject(GameObject object) {
         object.setGame(game);
         objects.add(object);
+    }
+
+    public void removeObject(GameObject object) {
+        objects.remove(object);
     }
 }

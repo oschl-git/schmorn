@@ -8,7 +8,7 @@ public class Game {
     private final String[] unknownCommandMessages;
 
     private boolean runnning;
-    private final Player player;
+    private final Inventory inventory;
     private final ArrayList<Room> rooms;
     private Room currentRoom;
 
@@ -18,7 +18,7 @@ public class Game {
         this.unknownCommandMessages = unknownCommandMessages;
 
         this.runnning = true;
-        this.player = new Player();
+        this.inventory = new Inventory(this);
         this.rooms = new ArrayList<>();
     }
 
@@ -40,6 +40,10 @@ public class Game {
 
     public void finish() {
         this.runnning = false;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
     public void addRoom(Room room) {
