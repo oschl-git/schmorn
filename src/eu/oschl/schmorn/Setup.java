@@ -323,7 +323,7 @@ class Setup {
         game.addRoom(kitchensEnd);
         game.addRoom(dungeonExit);
 
-        game.setStartingRoom(royalWell);
+        game.setCurrentRoom(royalWell);
 
         return game;
     }

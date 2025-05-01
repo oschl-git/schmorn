@@ -52,7 +52,7 @@ public class Game {
         this.rooms.add(room);
     }
 
-    public void setStartingRoom(Room room) {
+    public void setCurrentRoom(Room room) {
         room.setGame(this);
         this.currentRoom = room;
     }

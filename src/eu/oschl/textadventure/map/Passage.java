@@ -38,6 +38,22 @@ public class Passage {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isSeeThrough() {
+        return seeThrough;
+    }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+
     public void addRoom(Room room) {
         room.addPassage(this);
         room.setGame(game);
@@ -57,6 +73,17 @@ public class Passage {
         }
     }
 
+    public boolean passThrough() {
+        if (!canPass()) {
+            return false;
+        }
+
+        this.game.setLastPassage(this);
+        this.game.setCurrentRoom(getOtherRoom(game.getCurrentRoom()));
+
+        return true;
+    }
+
     public Optional<Blockage> getBlockage() {
         return Optional.ofNullable(blockage);
     }
@@ -64,6 +91,10 @@ public class Passage {
     public void setBlockage(Blockage blockage) {
         blockage.setGame(game);
         this.blockage = blockage;
+    }
+
+    public boolean canPass() {
+        return this.getBlockage().isEmpty();
     }
 
     public Room getOtherRoom(Room room) {

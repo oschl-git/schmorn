@@ -45,9 +45,21 @@ public class Room {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public void addPassage(Passage passage) {
         passage.setGame(game);
         passages.add(passage);
+    }
+
+    public HashSet<Passage> getPassages() {
+        return passages;
     }
 
     public void setEnemy(Enemy enemy) {

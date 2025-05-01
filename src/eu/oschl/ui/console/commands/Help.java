@@ -27,14 +27,12 @@ public class Help implements Command {
 
     @Override
     public void execute(String[] args) {
-        Console.printLine();
         Console.print("available actions:", ConsoleColor.BG_CYAN);
-        Console.printLine();
 
         for (var command : commands) {
+            Console.printLine();
             Console.print(" * [" + command.getTriggers()[0] + "]", ConsoleColor.YELLOW);
             Console.print(" - " + command.getDescription(), ConsoleColor.WHITE);
-            Console.printLine();
         }
     }
 }
