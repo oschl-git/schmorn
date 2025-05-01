@@ -191,6 +191,30 @@ class Setup {
         pantryKitchensEndPassage.addRoom(pantry);
         pantryKitchensEndPassage.addRoom(kitchensEnd);
 
+        var crossroadsDungeonExitPassage = new Passage("Stone lift", true);
+        crossroadsDungeonExitPassage.addRoom(crossroads);
+        crossroadsDungeonExitPassage.addRoom(dungeonExit);
+
+        game.addRoom(royalWell);
+        game.addRoom(crossroads);
+        game.addRoom(sewerEntrance);
+        game.addRoom(swordsmithRatsLair);
+        game.addRoom(prisonEntrance);
+        game.addRoom(cellA);
+        game.addRoom(cellB);
+        game.addRoom(guardRoom);
+        game.addRoom(prisonsEnd);
+        game.addRoom(darkEntrance);
+        game.addRoom(blackAltar);
+        game.addRoom(shadowChamber);
+        game.addRoom(pathwaysEnd);
+        game.addRoom(royalKitchensEntrance);
+        game.addRoom(pantry);
+        game.addRoom(kitchensEnd);
+        game.addRoom(dungeonExit);
+
+        game.setStartingRoom(royalWell);
+
         return game;
     }
 }
