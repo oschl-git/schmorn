@@ -1,9 +1,9 @@
 package eu.oschl.schmorn;
 
-import eu.oschl.textadventure.Blockage;
+import eu.oschl.textadventure.map.Blockage;
 import eu.oschl.textadventure.Game;
-import eu.oschl.textadventure.Passage;
-import eu.oschl.textadventure.Room;
+import eu.oschl.textadventure.map.Passage;
+import eu.oschl.textadventure.map.Room;
 import eu.oschl.textadventure.entities.Enemy;
 import eu.oschl.textadventure.objects.Button;
 import eu.oschl.textadventure.objects.PickableObject;
@@ -25,12 +25,6 @@ class Setup {
                 "Schmorn does not understand what that means.",
                 "Schmorn is confused by what you mean.",
         };
-
-        var game = new Game(
-                prologue,
-                epilogue,
-                unknownCommandMessages
-        );
 
         // Rooms
         var royalWell = new Room(
@@ -261,6 +255,13 @@ class Setup {
         );
         kitchensEnd.addObject(fireStone);
 
+        var unbreakableLadle = new Weapon(
+                "Unbreakable ladle",
+                "A mighty weapon, the most prized possession of the Head Chef. It is unbreakable and stronger than any sword.",
+                20
+        );
+        kitchensEnd.addObject(unbreakableLadle);
+
         // Add enemies
         var swordsmithRat = new Enemy(
                 "Swordsmith Rat",
@@ -297,7 +298,13 @@ class Setup {
         );
         pantry.setEnemy(headChef);
 
-        // Add rooms to game
+        // Create game object
+        var game = new Game(
+                prologue,
+                epilogue,
+                unknownCommandMessages
+        );
+
         game.addRoom(royalWell);
         game.addRoom(crossroads);
         game.addRoom(sewerEntrance);

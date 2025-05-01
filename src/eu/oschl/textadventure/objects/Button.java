@@ -1,6 +1,6 @@
 package eu.oschl.textadventure.objects;
 
-import eu.oschl.textadventure.Blockage;
+import eu.oschl.textadventure.map.Blockage;
 
 public class Button extends GameObject {
     private final Blockage interactsWith;

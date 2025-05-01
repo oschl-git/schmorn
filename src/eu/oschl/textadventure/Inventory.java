@@ -9,13 +9,10 @@ import java.util.Optional;
 public class Inventory {
     private static final int MAX_ITEMS = 5;
 
-    private final Game game;
-
     public final ArrayList<PickableObject> items;
     public Weapon weapon;
 
-    public Inventory(Game game) {
-        this.game = game;
+    public Inventory() {
         this.items = new ArrayList<>();
         this.weapon = null;
     }

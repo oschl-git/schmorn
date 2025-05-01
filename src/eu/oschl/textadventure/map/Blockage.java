@@ -1,4 +1,6 @@
-package eu.oschl.textadventure;
+package eu.oschl.textadventure.map;
+
+import eu.oschl.textadventure.Game;
 
 public class Blockage {
     private Game game;

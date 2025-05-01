@@ -1,5 +1,6 @@
-package eu.oschl.textadventure;
+package eu.oschl.textadventure.map;
 
+import eu.oschl.textadventure.Game;
 import eu.oschl.textadventure.entities.Enemy;
 import eu.oschl.textadventure.objects.GameObject;
 
@@ -14,7 +15,6 @@ public class Room {
     private final String description;
 
     private final HashSet<Passage> passages;
-    private Blockage blockage;
     private final ArrayList<GameObject> objects;
     private Enemy enemy;
 
@@ -36,10 +36,6 @@ public class Room {
             passage.setGame(game);
         }
 
-        if (blockage != null) {
-            blockage.setGame(game);
-        }
-
         if (enemy != null) {
             enemy.setGame(game);
         }
@@ -52,11 +48,6 @@ public class Room {
     public void addPassage(Passage passage) {
         passage.setGame(game);
         passages.add(passage);
-    }
-
-    public void setBlockage(Blockage blockage) {
-        blockage.setGame(game);
-        this.blockage = blockage;
     }
 
     public void setEnemy(Enemy enemy) {

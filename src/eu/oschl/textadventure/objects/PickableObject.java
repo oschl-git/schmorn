@@ -1,7 +1,7 @@
 package eu.oschl.textadventure.objects;
 
-import eu.oschl.textadventure.Blockage;
-import eu.oschl.textadventure.Room;
+import eu.oschl.textadventure.map.Blockage;
+import eu.oschl.textadventure.map.Room;
 
 import java.util.Arrays;
 
@@ -16,7 +16,7 @@ public class PickableObject extends GameObject {
     }
 
     public boolean pickUp() {
-        game.getInventory().addItem(this);
+        return game.getInventory().addItem(this);
     }
 
     public boolean use() {

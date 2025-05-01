@@ -1,6 +1,9 @@
-package eu.oschl.textadventure;
+package eu.oschl.textadventure.map;
 
+import eu.oschl.textadventure.Game;
 import eu.oschl.textadventure.exceptions.InvalidGameState;
+
+import java.util.Optional;
 
 public class Passage {
     private Game game;
@@ -29,7 +32,10 @@ public class Passage {
         }
 
         this.game = game;
-        this.blockage.setGame(game);
+
+        if (blockage != null) {
+            blockage.setGame(game);
+        }
     }
 
     public void addRoom(Room room) {
@@ -49,6 +55,10 @@ public class Passage {
         } else {
             throw new InvalidGameState("Attempted to add third room to passage");
         }
+    }
+
+    public Optional<Blockage> getBlockage() {
+        return Optional.ofNullable(blockage);
     }
 
     public void setBlockage(Blockage blockage) {
