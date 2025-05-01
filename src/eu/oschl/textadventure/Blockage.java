@@ -5,19 +5,23 @@ public class Blockage {
 
     private final String name;
     private final String description;
-    private int requiredItemsToPass;
+    private int requiredInteractionsToPass;
 
-    public Blockage(String name, String description, int requiredItemsToPass) {
+    public Blockage(String name, String description, int requiredInteractionsToPass) {
         this.name = name;
         this.description = description;
-        this.requiredItemsToPass = requiredItemsToPass;
+        this.requiredInteractionsToPass = requiredInteractionsToPass;
     }
 
-    public Blockage(String name, int requiredItemsToPass) {
-        this(name, null, requiredItemsToPass);
+    public Blockage(String name, int requiredInteractionsToPass) {
+        this(name, null, requiredInteractionsToPass);
     }
 
     public void setGame(Game game) {
+        if (game == null) {
+            return;
+        }
+
         this.game = game;
     }
 
@@ -29,11 +33,11 @@ public class Blockage {
         return description;
     }
 
-    public void unblock() {
-        this.requiredItemsToPass--;
+    public void interact() {
+        this.requiredInteractionsToPass--;
     }
 
     public boolean canPass() {
-        return requiredItemsToPass <= 0;
+        return requiredInteractionsToPass <= 0;
     }
 }

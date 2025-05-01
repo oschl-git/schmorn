@@ -4,6 +4,10 @@ import eu.oschl.textadventure.Blockage;
 import eu.oschl.textadventure.Game;
 import eu.oschl.textadventure.Passage;
 import eu.oschl.textadventure.Room;
+import eu.oschl.textadventure.entities.Enemy;
+import eu.oschl.textadventure.objects.Button;
+import eu.oschl.textadventure.objects.PickableObject;
+import eu.oschl.textadventure.objects.Weapon;
 
 class Setup {
     public static Game createGame() {
@@ -195,6 +199,105 @@ class Setup {
         crossroadsDungeonExitPassage.addRoom(crossroads);
         crossroadsDungeonExitPassage.addRoom(dungeonExit);
 
+        var crossroadsDungeonExitPassageBlockage = new Blockage(
+                "The lift is inactive and does not move. There is a panel with three mysteriously shaped holes.",
+                3
+        );
+        crossroadsDungeonExitPassage.setBlockage(crossroadsDungeonExitPassageBlockage);
+
+
+        // Add game objects
+        var swordsmithRatsLairEntrance = new Button(
+                "Steel button",
+                "An ornamented button made of slightly rusted steel",
+                sewerEntranceSwordsmithRatsLairPassageBlockage
+        );
+        prisonEntrance.addObject(swordsmithRatsLairEntrance);
+
+        var sword = new Weapon(
+                "Sword",
+                "A steel sword, expertly crafted by the Swordsmith Rat.",
+                10
+        );
+        swordsmithRatsLair.addObject(sword);
+        
+        var darkKey = new PickableObject(
+                "Dark key",
+                "A huge, menacing key, made out of black iron",
+                new Room[]{crossroads},
+                crossroadsDarkEntrancePassageBlockage
+        );
+        guardRoom.addObject(darkKey);
+
+        var kitchenKey = new PickableObject(
+                "Kitchen key",
+                "A small, delicate key, made out of gold",
+                new Room[]{crossroads},
+                crossroadsRoyalKitchensEntrancePassageBlockage
+        );
+        shadowChamber.addObject(kitchenKey);
+
+        var frozenStone = new PickableObject(
+                "Frozen stone",
+                "A mysteriously shaped stone that is so cold it hurts to touch",
+                new Room[]{crossroads},
+                crossroadsDungeonExitPassageBlockage
+        );
+        prisonsEnd.addObject(frozenStone);
+
+        var darkStone = new PickableObject(
+                "Dark stone",
+                "A mysteriously shaped stone that is so dark it seems to absorb all light",
+                new Room[]{crossroads},
+                crossroadsDungeonExitPassageBlockage
+        );
+        pathwaysEnd.addObject(frozenStone);
+
+        var fireStone = new PickableObject(
+                "Fire stone",
+                "A mysteriously shaped stone that is so hot it's almost impossible to carry",
+                new Room[]{crossroads},
+                crossroadsDungeonExitPassageBlockage
+        );
+        kitchensEnd.addObject(fireStone);
+
+        // Add enemies
+        var swordsmithRat = new Enemy(
+                "Swordsmith Rat",
+                "A rat that is a master of his craft. He is also a rat.",
+                0
+        );
+        swordsmithRatsLair.setEnemy(swordsmithRat);
+
+        var awakenedPrisoner = new Enemy(
+                "Awakened Prisoner",
+                "From this prisoner's appearance, you can tell that he's already been dead. However, he appears to be alive once more.",
+                5
+        );
+        cellA.setEnemy(awakenedPrisoner);
+
+        var fallenRatLord = new Enemy(
+                "Fallen Rat Lord",
+                "A rat lord that has fallen from grace. He is now a shadow of his former self.",
+                5
+        );
+        cellB.setEnemy(fallenRatLord);
+
+        var x = new Enemy(
+                "X",
+                "A mysterious creature that is so dark it seems to absorb all light",
+                5
+        );
+        blackAltar.setEnemy(x);
+
+        var headChef = new Enemy(
+                "Head Chef",
+                "The head chef of the Royal Kitchens. He does not approve of visitors.",
+                5
+        );
+        pantry.setEnemy(headChef);
+
+        // Add rooms to game
         game.addRoom(royalWell);
         game.addRoom(crossroads);
         game.addRoom(sewerEntrance);

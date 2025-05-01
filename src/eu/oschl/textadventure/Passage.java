@@ -1,6 +1,6 @@
 package eu.oschl.textadventure;
 
-import eu.oschl.textadventure.exceptions.IncorrectGameSetup;
+import eu.oschl.textadventure.exceptions.InvalidGameState;
 
 public class Passage {
     private Game game;
@@ -24,6 +24,10 @@ public class Passage {
     }
 
     public void setGame(Game game) {
+        if (game == null) {
+            return;
+        }
+
         this.game = game;
         this.blockage.setGame(game);
     }
@@ -43,7 +47,7 @@ public class Passage {
         } else if (rooms[1] == null) {
             rooms[1] = room;
         } else {
-            throw new IncorrectGameSetup("Attempted to add third room to passage");
+            throw new InvalidGameState("Attempted to add third room to passage");
         }
     }
 
@@ -58,7 +62,7 @@ public class Passage {
         } else if (rooms[1] == room) {
             return rooms[0];
         } else {
-            throw new IncorrectGameSetup("Neither room leading to accessed passage is the current room");
+            throw new InvalidGameState("Neither room leading to accessed passage is the current room");
         }
     }
 }

@@ -1,9 +1,11 @@
 package eu.oschl.textadventure;
 
+import eu.oschl.textadventure.entities.Enemy;
 import eu.oschl.textadventure.objects.GameObject;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Optional;
 
 public class Room {
     private Game game;
@@ -14,6 +16,7 @@ public class Room {
     private final HashSet<Passage> passages;
     private Blockage blockage;
     private final ArrayList<GameObject> objects;
+    private Enemy enemy;
 
     public Room(String name, String description) {
         this.name = name;
@@ -23,6 +26,10 @@ public class Room {
     }
 
     public void setGame(Game game) {
+        if (game == null) {
+            return;
+        }
+
         this.game = game;
 
         for (Passage passage : passages) {
@@ -31,6 +38,10 @@ public class Room {
 
         if (blockage != null) {
             blockage.setGame(game);
+        }
+
+        if (enemy != null) {
+            enemy.setGame(game);
         }
 
         for (GameObject object : objects) {
@@ -46,6 +57,18 @@ public class Room {
     public void setBlockage(Blockage blockage) {
         blockage.setGame(game);
         this.blockage = blockage;
+    }
+
+    public void setEnemy(Enemy enemy) {
+        if (enemy != null) {
+            enemy.setGame(game);
+        }
+
+        this.enemy = enemy;
+    }
+
+    public Optional<Enemy> getEnemy() {
+        return Optional.ofNullable(enemy);
     }
 
     public ArrayList<GameObject> getObjects() {

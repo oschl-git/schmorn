@@ -1,14 +1,14 @@
-package eu.oschl.textadventure.objects;
+package eu.oschl.textadventure.entities;
 
 import eu.oschl.textadventure.Game;
 
-public abstract class GameObject {
+public abstract class Entity {
     protected Game game;
 
     protected final String name;
     protected final String description;
 
-    public GameObject(String name, String description) {
+    public Entity(String name, String description) {
         this.name = name;
         this.description = description;
     }

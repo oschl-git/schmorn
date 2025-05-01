@@ -1,18 +1,14 @@
 package eu.oschl.textadventure.objects;
 
 public class Weapon extends GameObject {
-    public Weapon(String name, String description) {
-        super(name, description, unblocks);
-        this.mustBeUsedIn = mustBeUsedIn;
+    public final int damage;
+
+    public Weapon(String name, String description, int damage) {
+        super(name, description);
+        this.damage = damage;
     }
 
-    public void pickUp() {
-        game.getInventory().addItem(this);
-        game.getCurrentRoom().removeObject(this);
-    }
-
-    @Override
-    public boolean use() {
-        return false;
+    public int getDamage() {
+        return damage;
     }
 }

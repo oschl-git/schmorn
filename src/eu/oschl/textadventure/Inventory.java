@@ -4,40 +4,49 @@ import eu.oschl.textadventure.objects.PickableObject;
 import eu.oschl.textadventure.objects.Weapon;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Inventory {
+    private static final int MAX_ITEMS = 5;
+
     private final Game game;
 
     public final ArrayList<PickableObject> items;
-    public final ArrayList<Weapon> weapons;
+    public Weapon weapon;
 
     public Inventory(Game game) {
         this.game = game;
         this.items = new ArrayList<>();
-        this.weapons = new ArrayList<>();
+        this.weapon = null;
     }
 
-    public void addItem(PickableObject item) {
+    public boolean addItem(PickableObject item) {
+        if (items.size() >= MAX_ITEMS) {
+            return false;
+        }
+
         items.add(item);
+        return true;
     }
 
-    public void removeItem(PickableObject item) {
+    public boolean removeItem(PickableObject item) {
+        if (!items.contains(item)) {
+            return false;
+        }
+
         items.remove(item);
-    }
-
-    public void addWeapon(Weapon weapon) {
-        weapons.add(weapon);
-    }
-
-    public void removeWeapon(Weapon weapon) {
-        weapons.remove(weapon);
+        return true;
     }
 
     public ArrayList<PickableObject> getItems() {
         return items;
     }
 
-    public ArrayList<Weapon> getWeapons() {
-        return weapons;
+    public Optional<Weapon> getWeapon() {
+        return Optional.ofNullable(weapon);
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 }
