@@ -20,7 +20,7 @@ public class UseItem implements Command {
 
     @Override
     public String getDescription() {
-        return "use an item from your inventory";
+        return "use an item";
     }
 
     @Override
@@ -36,7 +36,7 @@ public class UseItem implements Command {
                 .orElse(null);
 
         if (item == null) {
-            Console.print("You don't have that item.", ConsoleColor.RED);
+            Console.print("That item does not exist.", ConsoleColor.RED);
             return;
         }
 
@@ -45,7 +45,7 @@ public class UseItem implements Command {
         if (result) {
             Console.print(item.getUseText(), ConsoleColor.MAGENTA);
         } else {
-            Console.print("You can't use ", ConsoleColor.RED);
+            Console.print("It's impossible to use ", ConsoleColor.RED);
             Console.print(item.getName(), ConsoleColor.MAGENTA);
             Console.print(" here.", ConsoleColor.RED);
         }

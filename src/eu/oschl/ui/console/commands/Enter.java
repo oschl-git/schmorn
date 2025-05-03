@@ -75,7 +75,7 @@ public class Enter implements Command {
         if (!result) {
             if (game.getCurrentRoom().getEnemy().isPresent()) {
                 Console.print(
-                        game.getCurrentRoom().getEnemy().get().getName() + " blocks your way. You can only go back.",
+                        game.getCurrentRoom().getEnemy().get().getName() + " blocks the way. It is only possible to go back.",
                         ConsoleColor.RED
                 );
             } else if (passage.getBlockage().isPresent()) {
@@ -100,7 +100,7 @@ public class Enter implements Command {
             Console.printLine();
             Console.print("...", ConsoleColor.WHITE);
             Console.printLine();
-            Console.print("You are not alone here.", ConsoleColor.WHITE);
+            Console.print("There is somebody in here.", ConsoleColor.WHITE);
         }
     }
 }

@@ -24,8 +24,7 @@ class CommandProcessor {
                 new TakeItem(game),
                 new UseItem(game),
                 new PressButton(game),
-                new Kill(game),
-                new Quit()
+                new Slay(game)
         ));
 
         commands.add(new Help(commands));

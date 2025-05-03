@@ -24,13 +24,18 @@ public class TakeItem implements Command {
 
     @Override
     public String getDescription() {
-        return "take an item from the current room";
+        return "take an item";
     }
 
     @Override
     public void execute(String[] args) {
         if (args.length == 0) {
             Console.print("What item?", ConsoleColor.RED);
+            return;
+        }
+
+        if (game.getCurrentRoom().isBlockedByEnemy()) {
+            Console.print("The way is blocked. It's impossible to pick up items.", ConsoleColor.RED);
             return;
         }
 
@@ -41,24 +46,24 @@ public class TakeItem implements Command {
 
                     if (item instanceof Weapon) {
                         if (result) {
-                            Console.print("You are now carrying ");
+                            Console.print("Weapon ", ConsoleColor.MAGENTA);
                             Console.print(item.getName(), ConsoleColor.BG_MAGENTA);
-                            Console.print(" as your weapon.");
+                            Console.print(" obtained.", ConsoleColor.MAGENTA);
                         } else {
-                            Console.print("You already have a stronger weapon than this one.", ConsoleColor.RED);
+                            Console.print("This weapon is weaker than the current one.", ConsoleColor.RED);
                         }
                     } else {
                         if (result) {
                             Console.print("Item ", ConsoleColor.MAGENTA);
                             Console.print(item.getName(), ConsoleColor.BG_MAGENTA);
-                            Console.print(" added to inventory.");
+                            Console.print(" added to inventory.", ConsoleColor.MAGENTA);
                         } else {
-                            Console.print("You are carrying too many items.", ConsoleColor.MAGENTA);
+                            Console.print("Carrying too many items.", ConsoleColor.MAGENTA);
                         }
                     }
 
                 } else {
-                    Console.print("You can't pick up ", ConsoleColor.RED);
+                    Console.print("Can't pick up ", ConsoleColor.RED);
                     Console.print(object.getName(), ConsoleColor.MAGENTA);
                     Console.print(".", ConsoleColor.RED);
                 }

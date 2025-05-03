@@ -18,12 +18,14 @@ public class GoBack implements Command {
                 "go back",
                 "return",
                 "back",
+                "exit",
+                "leave",
         };
     }
 
     @Override
     public String getDescription() {
-        return "return to previous room";
+        return "return to previous location";
     }
 
     @Override
@@ -34,7 +36,7 @@ public class GoBack implements Command {
         }
 
         if (game.getLastPassage().isEmpty()) {
-            Console.print("You can't go back, you're right where you started.", ConsoleColor.RED);
+            Console.print("Can't go back, the current room is where it all began.", ConsoleColor.RED);
             return;
         }
 
@@ -44,7 +46,7 @@ public class GoBack implements Command {
         if (!result) {
             if (game.getCurrentRoom().getEnemy().isPresent()) {
                 Console.print(
-                        game.getCurrentRoom().getEnemy().get().getName() + " blocks your way. You can only go back.",
+                        game.getCurrentRoom().getEnemy().get().getName() + " blocks the way. It is only possible to go back.",
                         ConsoleColor.RED
                 );
             } else if (passage.getBlockage().isPresent()) {
@@ -71,7 +73,7 @@ public class GoBack implements Command {
             Console.printLine();
             Console.print("...", ConsoleColor.WHITE);
             Console.printLine();
-            Console.print("You are not alone here.", ConsoleColor.WHITE);
+            Console.print("There is somebody in here.", ConsoleColor.WHITE);
         }
     }
 }

@@ -10,7 +10,7 @@ public class Passage {
 
     private final String name;
     private final String description;
-    private final boolean seeThrough;
+    private boolean seeThrough;
 
     private final Room[] rooms;
     private Blockage blockage;
@@ -82,6 +82,7 @@ public class Passage {
             game.addPreviousPassage(this);
         }
 
+        seeThrough = true;
         this.game.setCurrentRoom(getOtherRoom(game.getCurrentRoom()));
 
         return true;

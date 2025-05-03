@@ -24,7 +24,7 @@ public class PressButton implements Command {
 
     @Override
     public String getDescription() {
-        return "take an item from the current room";
+        return "press a button";
     }
 
     @Override
@@ -43,12 +43,12 @@ public class PressButton implements Command {
                         Console.print(button.getPressText(), ConsoleColor.MAGENTA);
                     } else {
                         Console.print("Button ", ConsoleColor.RED);
-                        Console.print(button.getName(), ConsoleColor.BG_MAGENTA);
+                        Console.print(button.getName(), ConsoleColor.MAGENTA);
                         Console.print(" has already been pressed.", ConsoleColor.RED);
                     }
 
                 } else {
-                    Console.print("You can't press ", ConsoleColor.RED);
+                    Console.print("It's impossible to press ", ConsoleColor.RED);
                     Console.print(object.getName(), ConsoleColor.MAGENTA);
                     Console.print(". It's not a button.", ConsoleColor.RED);
                 }

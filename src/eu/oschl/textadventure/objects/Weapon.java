@@ -16,6 +16,10 @@ public class Weapon extends PickableObject {
 
     @Override
     public boolean pickUp() {
+        if (game.getCurrentRoom().isBlockedByEnemy()) {
+            return false;
+        }
+
         if (game.getInventory().getWeapon().isPresent() && game.getInventory().getWeapon().get().getDamage() > damage) {
             return false;
         }

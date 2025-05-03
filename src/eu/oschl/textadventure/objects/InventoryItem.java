@@ -22,6 +22,10 @@ public class InventoryItem extends PickableObject {
     }
 
     public boolean pickUp() {
+        if (game.getCurrentRoom().isBlockedByEnemy()) {
+            return false;
+        }
+
         var result = game.getInventory().addItem(this);
 
         if (result) {

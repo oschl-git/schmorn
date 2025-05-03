@@ -13,7 +13,35 @@ class Setup {
     public static Game createGame() {
         // Base game setup
         var prologue = """
-                You wake up in a dark room. You don't know how you got here.
+                The sun sets over a misty day as the witch Oglunda, ruler of the Seven Swamps, rides her carriage down the Royal Road. An agreement has been made, and she comes now to fulfil her side of it.
+                
+                The prince is waiting. Face illuminated by flickering candlelight, Schmorn, high prince of the Grey Princedom, stares out of the window of his highest tower and watches as the witch's carriage makes its way down towards the gate. When the carriage stops, he signals the guards, who obediently raise the iron bars.
+                
+                Moments later, Oglunda climbs the tower steps and enters. She sits across from the prince at a heavy wooden desk.
+                
+                "So, you're sure?" she asks, her voice raspy. "This is what you want? You've looked upon the world, weighed all the possibilities, and what you desire the most is unlimited power, no matter the cost?"
+                
+                "Yes," Schmorn replies.
+                
+                "Do you believe this will give you what you lack? The kingdoms snicker behind closed doors, whispering of your blatant incompetence, mistreatment of your subjects, the living conditions of your people. 'An insecure prince for an insecure land,' they say. Have you perhaps considered that this will not change their minds? That this is not the right way to go about it?"
+                
+                "They will fear me. All of them. None will be a match for what I'll be capable of," the prince replies, voice shaky with morbid excitement. "So keep your mouth shut, witch. You have not come here to speak of things already decided. Have you brought it?"
+                
+                "I have," Oglunda replies, reaches into her cloak and withdraws a small envelope, emptying its contents onto the table. In front of them now lies a small, silver ring, simple and unadorned, yet unnaturally beautiful.
+                
+                "I warn you for the last time, Schmorn, prince of the Grey Princedom. Once you wear it, there will be consequences. Both for your realm, and for your soul."
+                
+                Schmorn, barely listening, eyes glued to the small ring, grabs it in his fingers and raises his hand toward a chandelier above. The ring reflects the golden light, casting delicate glimmers all around the room. He raises the ring finger of his left hand and determinedly puts it on.
+                
+                As he does so, his body starts to undulate and shift, and just a few seconds later, the prince is gone completely. On the table now lies the ring, and, right next to it, squirms a small, repulsive worm.
+                
+                "I gave you a chance, idiot," she says, pockets the ring, pinching the worm between her fingers, and makes her way down the tower. In the courtyard, the people gather, murmuring.
+                
+                "Look here!" she calls. "This is your prince. This is what remains of him. Take me to your deepest well!"
+                
+                The former prince's subjects obediently lead Oglunda towards an ancient stone well in the middle of the courtyard, where she stops and triumphantly casts the worm into the depths. The people cheer, finally free of the rule of an incompetent, dangerous tyrant.
+                
+                And Schmorn falls...
                 """;
 
         var epilogue = """
@@ -23,23 +51,23 @@ class Setup {
         var unknownCommandMessages = new String[]{
                 "Schmorn doesn't know how to do that.",
                 "Schmorn does not understand what that means.",
-                "Schmorn is confused by what you mean.",
+                "Schmorn is confused.",
         };
 
         // Rooms
         var royalWell = new Room(
                 "Royal Well",
-                "The well that the evil witch, Oglunda, ruler of the 7 swamps, threw Schmorn into. It is dark and wet."
+                "The bottom of the deepest well of the Grey Princedom. Fortunately, there is no water in it."
         );
 
         var crossroads = new Room(
                 "Crossroads",
-                "A dark room in the underground, full of tunnels and entrances to other locations."
+                "A damp room in the Royal Dungeon, full of unnerving tunnels and entrances to other locations."
         );
 
         var sewerEntrance = new Room(
                 "Sewer Entrance",
-                "An entrance room to the Royal Sewer."
+                "An entrance room of the Royal Sewer."
         );
 
         var swordsmithRatsLair = new Room(
@@ -49,7 +77,7 @@ class Setup {
 
         var prisonEntrance = new Room(
                 "Prison Entrance",
-                "An entrance room to the Royal Prison."
+                "An entrance room of the Royal Prison."
         );
 
         var cellA = new Room(
@@ -112,15 +140,15 @@ class Setup {
                 "A way out. Are you certain you are ready to leave?"
         );
 
-        var royalWellCrossroadsPassage = new Passage("rusted door", false);
+        var royalWellCrossroadsPassage = new Passage("crack in the wall", true);
         royalWellCrossroadsPassage.addRoom(royalWell);
         royalWellCrossroadsPassage.addRoom(crossroads);
 
-        var crossroadsSewerEntrancePassage = new Passage("sewer hatch", false);
+        var crossroadsSewerEntrancePassage = new Passage("sewer hatch", true);
         crossroadsSewerEntrancePassage.addRoom(crossroads);
         crossroadsSewerEntrancePassage.addRoom(sewerEntrance);
 
-        var sewerEntranceSwordsmithRatsLairPassage = new Passage("sliding iron door", true);
+        var sewerEntranceSwordsmithRatsLairPassage = new Passage("sliding iron door", false);
         sewerEntranceSwordsmithRatsLairPassage.addRoom(sewerEntrance);
         sewerEntranceSwordsmithRatsLairPassage.addRoom(swordsmithRatsLair);
         var sewerEntranceSwordsmithRatsLairPassageBlockage = new Blockage(
@@ -145,16 +173,16 @@ class Setup {
         cellBGuardRoomPassage.addRoom(cellB);
         cellBGuardRoomPassage.addRoom(guardRoom);
 
-        var cellBPrisonsEndPassage = new Passage("iron door", false);
+        var cellBPrisonsEndPassage = new Passage("iron door", true);
         cellBPrisonsEndPassage.addRoom(cellB);
         cellBPrisonsEndPassage.addRoom(prisonsEnd);
 
-        var crossroadsDarkEntrancePassage = new Passage("dark passage", true);
+        var crossroadsDarkEntrancePassage = new Passage("dark passage", false);
         crossroadsDarkEntrancePassage.addRoom(crossroads);
         crossroadsDarkEntrancePassage.addRoom(darkEntrance);
 
         var crossroadsDarkEntrancePassageBlockage = new Blockage(
-                "The door is locked. It has a large rusty keyhole, but you can't see through it, as if it was obscured by some dark magic.",
+                "The door is locked. It has a large rusty keyhole, which is impossible to see through, as if it was obscured by some dark magic.",
                 1
         );
         crossroadsDarkEntrancePassage.setBlockage(crossroadsDarkEntrancePassageBlockage);
@@ -181,11 +209,11 @@ class Setup {
         );
         crossroadsRoyalKitchensEntrancePassage.setBlockage(crossroadsRoyalKitchensEntrancePassageBlockage);
 
-        var royalKitchensEntrancePantryPassage = new Passage("pantry door", false);
+        var royalKitchensEntrancePantryPassage = new Passage("pantry door", true);
         royalKitchensEntrancePantryPassage.addRoom(royalKitchensEntrance);
         royalKitchensEntrancePantryPassage.addRoom(pantry);
 
-        var pantryKitchensEndPassage = new Passage("kitchen door", false);
+        var pantryKitchensEndPassage = new Passage("backdoor", true);
         pantryKitchensEndPassage.addRoom(pantry);
         pantryKitchensEndPassage.addRoom(kitchensEnd);
 
@@ -198,7 +226,7 @@ class Setup {
         crossroadsDungeonExitPassage.addRoom(dungeonExit);
 
         var crossroadsDungeonExitPassageBlockage = new Blockage(
-                "The lift is inactive and does not move. There is a magical panel with three mysteriously shaped holes.",
+                "The lift is dark, inactive and does not move. Inside, there is a magical stone tablet with three mysteriously shaped holes.",
                 3
         );
         crossroadsDungeonExitPassage.setBlockage(crossroadsDungeonExitPassageBlockage);
@@ -216,7 +244,7 @@ class Setup {
         var sword = new Weapon(
                 "ratsword",
                 "a steel sword, expertly crafted by the Swordsmith Rat",
-                "You attack with the Ratsword.",
+                "Schmorn attacks with the ratsword.",
                 10
         );
         swordsmithRatsLair.addObject(sword);
@@ -224,7 +252,7 @@ class Setup {
         var darkKey = new InventoryItem(
                 "dark key",
                 "a huge, menacing key, made out of black iron",
-                "You used the key to unlock the dark passage.",
+                "Schmorn used the key to unlock the dark passage.",
                 new Room[]{crossroads},
                 crossroadsDarkEntrancePassageBlockage
         );
@@ -233,7 +261,7 @@ class Setup {
         var kitchenKey = new InventoryItem(
                 "kitchen key",
                 "a small, golden, delicate key",
-                "You used the key to unlock the kitchen door.",
+                "Schmorn used the key to unlock the kitchen door.",
                 new Room[]{crossroads},
                 crossroadsRoyalKitchensEntrancePassageBlockage
         );
@@ -242,7 +270,7 @@ class Setup {
         var frozenStone = new InventoryItem(
                 "frozen stone",
                 "a mysteriously shaped stone that is so cold it hurts to touch",
-                "You inserted the stone into the elevator panel.",
+                "Schmorn inserted the stone into the lift panel.",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
@@ -251,7 +279,7 @@ class Setup {
         var darkStone = new InventoryItem(
                 "dark stone",
                 "a mysteriously shaped stone that is so dark it seems to absorb all light",
-                "You inserted the stone into the elevator panel.",
+                "Schmorn inserted the stone into the lift panel.",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
@@ -260,7 +288,7 @@ class Setup {
         var fireStone = new InventoryItem(
                 "fire stone",
                 "a mysteriously shaped stone that is so hot it's almost impossible to carry",
-                "You inserted the stone into the elevator panel.",
+                "Schmorn inserted the stone into the lift panel.",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
@@ -269,22 +297,22 @@ class Setup {
         var unbreakableLadle = new Weapon(
                 "unbreakable ladle",
                 "a mighty weapon, the most prized possession of the Head Chef, unbreakable and stronger than any sword",
-                "You attack with the mighy Unbreakable Ladle.",
+                "Schmorn attacks with the mighy Unbreakable Ladle.",
                 20
         );
-        kitchensEnd.addObject(unbreakableLadle);
+        royalKitchensEntrance.addObject(unbreakableLadle);
 
         // Add enemies
         var swordsmithRat = new Enemy(
                 "Swordsmith Rat",
-                "A world-renowned swordsmith, who has been locked up by Schmorn 10 years ago in his royal dungeon.",
+                "A world-renowned swordsmith, locked up in the Royal Dungeon by prince Schmorn in hopes of getting him to craft powerful weapons for his armies.",
                 0
         );
         swordsmithRatsLair.setEnemy(swordsmithRat);
 
         var awakenedPrisoner = new Enemy(
                 "Awakened Prisoner",
-                "From this prisoner's appearance, you can tell that he's already been dead. However, he appears to be alive once more.",
+                "From this prisoner's appearance, it is clear that he is already dead. However, he is moving and dangerous.",
                 5
         );
         cellA.setEnemy(awakenedPrisoner);
@@ -306,7 +334,7 @@ class Setup {
         var headChef = new Enemy(
                 "Head Chef",
                 "The head chef of the Royal Kitchens. He does not approve of visitors.",
-                5
+                10
         );
         pantry.setEnemy(headChef);
 

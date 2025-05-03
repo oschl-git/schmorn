@@ -21,7 +21,7 @@ public class Inventory implements Command {
 
     @Override
     public String getDescription() {
-        return "see what's in your inventory";
+        return "see current possessions";
     }
 
     @Override
@@ -34,11 +34,11 @@ public class Inventory implements Command {
         var inventory = game.getInventory();
 
         if (inventory.getItems().isEmpty() && inventory.getWeapon().isEmpty()) {
-            Console.print("You don't have any possessions.", ConsoleColor.MAGENTA);
+            Console.print("No possessions.", ConsoleColor.MAGENTA);
             return;
         }
 
-        Console.print("you are carring the following:", ConsoleColor.BG_MAGENTA);
+        Console.print("current posessions:", ConsoleColor.BG_MAGENTA);
 
         if (inventory.getWeapon().isPresent()) {
             Console.printLine();

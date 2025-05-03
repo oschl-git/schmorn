@@ -38,6 +38,10 @@ public class Help implements Command {
         Console.print("available actions:", ConsoleColor.BG_CYAN);
 
         for (var command : commands) {
+            if (command == this) {
+                continue;
+            }
+
             Console.printLine();
             Console.print(" * [" + command.getTriggers()[0] + "]", ConsoleColor.YELLOW);
             Console.print(" - " + command.getDescription(), ConsoleColor.WHITE);
