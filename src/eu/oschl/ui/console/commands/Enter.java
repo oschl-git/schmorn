@@ -16,11 +16,15 @@ public class Enter implements Command {
     public String[] getTriggers() {
         return new String[]{
                 "enter",
+                "go through",
                 "go",
+                "move through",
                 "move",
+                "walk through",
                 "walk",
-                "through",
                 "pass through",
+                "pass",
+                "through",
                 "open",
         };
     }
@@ -58,7 +62,7 @@ public class Enter implements Command {
             return;
         }
 
-        var result = game.getActionController().walkThroughPassage(passage);
+        var result = passage.passThrough();
 
         if (!result) {
             if (game.getCurrentRoom().getEnemy().isPresent()) {

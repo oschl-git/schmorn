@@ -9,14 +9,14 @@ import java.util.Arrays;
 import java.util.List;
 
 class CommandProcessor {
-    private ArrayList<Command> commands;
+    private final ArrayList<Command> commands;
 
     public CommandProcessor(ArrayList<Command> commands) {
         this.commands = commands;
     }
 
     public static CommandProcessor create(Game game) {
-        var commands = new ArrayList<Command>(List.of(
+        var commands = new ArrayList<>(List.of(
                 new Explore(game),
                 new Enter(game),
                 new Quit()
@@ -32,21 +32,41 @@ class CommandProcessor {
     }
 
     public void processInput(String input) throws InvalidInput {
-        var tokens = input.split(" ");
+        var inputTokens = input.trim().split(" ");
 
-        if (tokens.length == 0) {
+        if (inputTokens.length == 0) {
             throw new InvalidInput("Input cannot be empty");
         }
 
         for (Command command : commands) {
             for (String trigger : command.getTriggers()) {
-                if (trigger.equalsIgnoreCase(tokens[0])) {
-                    command.execute(Arrays.copyOfRange(tokens, 1, tokens.length));
+                var triggerTokens = trigger.trim().split(" ");
+
+                if (doesInputMatchTrigger(inputTokens, triggerTokens)) {
+                    command.execute(Arrays.copyOfRange(inputTokens, triggerTokens.length, inputTokens.length));
                     return;
                 }
             }
         }
 
         throw new InvalidInput("Command not found");
+    }
+
+    private boolean doesInputMatchTrigger(String[] inputTokens, String[] triggerTokens) {
+        if (inputTokens.length == 0) {
+            return false;
+        }
+
+        for (var i = 0; i < triggerTokens.length; i++) {
+            if (i >= inputTokens.length) {
+                return false;
+            }
+
+            if (!inputTokens[i].equalsIgnoreCase(triggerTokens[i])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

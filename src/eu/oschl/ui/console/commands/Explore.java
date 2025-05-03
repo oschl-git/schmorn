@@ -15,9 +15,12 @@ public class Explore implements Command {
     @Override
     public String[] getTriggers() {
         return new String[]{
+                "explore around",
                 "explore",
-                "look",
                 "look around",
+                "look",
+                "examine around",
+                "examine",
         };
     }
 
