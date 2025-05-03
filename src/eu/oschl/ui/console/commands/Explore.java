@@ -15,10 +15,10 @@ public class Explore implements Command {
     @Override
     public String[] getTriggers() {
         return new String[]{
-                "explore around",
-                "explore",
                 "look around",
                 "look",
+                "explore around",
+                "explore",
                 "examine around",
                 "examine",
         };
@@ -45,19 +45,25 @@ public class Explore implements Command {
         Console.print(room.getDescription(), ConsoleColor.BLUE);
 
         if (room.getEnemy().isPresent()) {
-            Console.printLine();
-            Console.printLine();
+            if (room.getEnemy().get().isAlive()) {
+                Console.printLine();
+                Console.printLine();
 
-            Console.print("In the middle of the room stands ", ConsoleColor.RED);
-            Console.print(room.getEnemy().get().getName(), ConsoleColor.BG_RED);
-            Console.print(".", ConsoleColor.RED);
-            Console.printLine();
-            Console.print(room.getEnemy().get().getDescription(), ConsoleColor.RED);
-            Console.printLine();
-            Console.printLine();
-            Console.print("You must defeat " + room.getEnemy().get().getName() + " to continue further, or turn back.");
+                Console.print("In the middle of the room stands ", ConsoleColor.RED);
+                Console.print(room.getEnemy().get().getName(), ConsoleColor.BG_RED);
+                Console.print(".", ConsoleColor.RED);
+                Console.printLine();
+                Console.print(room.getEnemy().get().getDescription(), ConsoleColor.RED);
+                Console.printLine();
+                Console.printLine();
+                Console.print("You must defeat " + room.getEnemy().get().getName() + " to continue further, or turn back.");
 
-            return;
+                return;
+            } else {
+                Console.printLine();
+                Console.printLine();
+                Console.print("The corpse of " + room.getEnemy().get().getName() + " lies on the ground.");
+            }
         }
 
         if (!objects.isEmpty()) {

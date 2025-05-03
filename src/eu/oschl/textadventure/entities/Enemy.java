@@ -20,8 +20,15 @@ public class Enemy extends Entity {
 
     public boolean kill() {
         var weapon = game.getInventory().getWeapon();
-        if (strength != 0 || weapon.isEmpty() || weapon.get().getDamage() <= strength) {
-            return false;
+
+        if (weapon.isPresent()) {
+            if (strength > weapon.get().getDamage()) {
+                return false;
+            }
+        } else {
+            if (strength > 0) {
+                return false;
+            }
         }
 
         alive = false;

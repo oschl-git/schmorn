@@ -1,7 +1,9 @@
 package eu.oschl.ui.console.commands;
 
 import eu.oschl.textadventure.Game;
+import eu.oschl.textadventure.objects.InventoryItem;
 import eu.oschl.textadventure.objects.PickableObject;
+import eu.oschl.textadventure.objects.Weapon;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
@@ -15,11 +17,8 @@ public class TakeItem implements Command {
     @Override
     public String[] getTriggers() {
         return new String[]{
-                "take item",
                 "take",
-                "grab item",
                 "grab",
-                "pick up item",
                 "pick up",
         };
     }
@@ -39,11 +38,26 @@ public class TakeItem implements Command {
         for (var object : this.game.getCurrentRoom().getObjects()) {
             if (object.getName().equalsIgnoreCase(String.join(" ", args))) {
                 if (object instanceof PickableObject item) {
-                    item.pickUp();
+                    var result = item.pickUp();
 
-                    Console.print("Item ");
-                    Console.print(item.getName(), ConsoleColor.BG_MAGENTA);
-                    Console.print("added to inventory.");
+                    if (item instanceof Weapon) {
+                        if (result) {
+                            Console.print("You are now carrying ");
+                            Console.print(item.getName(), ConsoleColor.BG_MAGENTA);
+                            Console.print(" as your weapon.");
+                        } else {
+                            Console.print("You already have a stronger weapon than this one.", ConsoleColor.RED);
+                        }
+                    } else {
+                        if (result) {
+                            Console.print("Item ");
+                            Console.print(item.getName(), ConsoleColor.BG_MAGENTA);
+                            Console.print("added to inventory.");
+                        } else {
+                            Console.print("You are carrying too many items.", ConsoleColor.RED);
+                        }
+                    }
+
                 } else {
                     Console.print("You can't pick up ", ConsoleColor.RED);
                     Console.print(object.getName(), ConsoleColor.MAGENTA);

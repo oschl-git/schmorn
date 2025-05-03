@@ -12,7 +12,7 @@ public class Button extends GameObject {
         this.pressed = false;
     }
 
-    public boolean use() {
+    public boolean press() {
         if (pressed) {
             return false;
         }

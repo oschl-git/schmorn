@@ -105,7 +105,7 @@ public class Passage {
             return false;
         }
 
-        return this.getBlockage().isEmpty();
+        return getBlockage().isEmpty() || getBlockage().get().canPass();
     }
 
     public Room getOtherRoom(Room room) {

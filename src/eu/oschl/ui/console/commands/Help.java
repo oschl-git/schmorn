@@ -15,7 +15,6 @@ public class Help implements Command {
     @Override
     public String[] getTriggers() {
         return new String[]{
-                "help me",
                 "help",
                 "actions",
                 "commands",

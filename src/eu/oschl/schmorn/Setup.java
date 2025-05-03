@@ -6,7 +6,7 @@ import eu.oschl.textadventure.map.Passage;
 import eu.oschl.textadventure.map.Room;
 import eu.oschl.textadventure.entities.Enemy;
 import eu.oschl.textadventure.objects.Button;
-import eu.oschl.textadventure.objects.PickableObject;
+import eu.oschl.textadventure.objects.InventoryItem;
 import eu.oschl.textadventure.objects.Weapon;
 
 class Setup {
@@ -213,13 +213,13 @@ class Setup {
         prisonEntrance.addObject(swordsmithRatsLairEntrance);
 
         var sword = new Weapon(
-                "rat's sword",
+                "ratsword",
                 "a steel sword, expertly crafted by the Swordsmith Rat",
                 10
         );
         swordsmithRatsLair.addObject(sword);
         
-        var darkKey = new PickableObject(
+        var darkKey = new InventoryItem(
                 "dark key",
                 "a huge, menacing key, made out of black iron",
                 new Room[]{crossroads},
@@ -227,7 +227,7 @@ class Setup {
         );
         guardRoom.addObject(darkKey);
 
-        var kitchenKey = new PickableObject(
+        var kitchenKey = new InventoryItem(
                 "kitchen key",
                 "a small, golden, delicate key",
                 new Room[]{crossroads},
@@ -235,7 +235,7 @@ class Setup {
         );
         shadowChamber.addObject(kitchenKey);
 
-        var frozenStone = new PickableObject(
+        var frozenStone = new InventoryItem(
                 "frozen stone",
                 "a mysteriously shaped stone that is so cold it hurts to touch",
                 new Room[]{crossroads},
@@ -243,7 +243,7 @@ class Setup {
         );
         prisonsEnd.addObject(frozenStone);
 
-        var darkStone = new PickableObject(
+        var darkStone = new InventoryItem(
                 "dark stone",
                 "a mysteriously shaped stone that is so dark it seems to absorb all light",
                 new Room[]{crossroads},
@@ -251,7 +251,7 @@ class Setup {
         );
         pathwaysEnd.addObject(frozenStone);
 
-        var fireStone = new PickableObject(
+        var fireStone = new InventoryItem(
                 "fire stone",
                 "a mysteriously shaped stone that is so hot it's almost impossible to carry",
                 new Room[]{crossroads},

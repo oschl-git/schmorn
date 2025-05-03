@@ -1,0 +1,62 @@
+package eu.oschl.ui.console.commands;
+
+import eu.oschl.textadventure.Game;
+import eu.oschl.textadventure.objects.Button;
+import eu.oschl.ui.console.Console;
+import eu.oschl.ui.console.ConsoleColor;
+
+public class PressButton implements Command {
+    private final Game game;
+
+    public PressButton(Game game) {
+        this.game = game;
+    }
+
+    @Override
+    public String[] getTriggers() {
+        return new String[]{
+                "press",
+                "push",
+                "activate",
+                "trigger",
+        };
+    }
+
+    @Override
+    public String getDescription() {
+        return "take an item from the current room";
+    }
+
+    @Override
+    public void execute(String[] args) {
+        if (args.length == 0) {
+            Console.print("What button?", ConsoleColor.RED);
+            return;
+        }
+
+        for (var object : this.game.getCurrentRoom().getObjects()) {
+            if (object.getName().equalsIgnoreCase(String.join(" ", args))) {
+                if (object instanceof Button button) {
+                    var result = button.press();
+
+                    if (result) {
+                        Console.print("You pressed ");
+                        Console.print(button.getName(), ConsoleColor.BG_MAGENTA);
+                        Console.print(".");
+                    } else {
+                        Console.print("Button ", ConsoleColor.RED);
+                        Console.print(button.getName(), ConsoleColor.BG_MAGENTA);
+                        Console.print(" has already been pressed.", ConsoleColor.RED);
+                    }
+
+                } else {
+                    Console.print("You can't press ", ConsoleColor.RED);
+                    Console.print(object.getName(), ConsoleColor.MAGENTA);
+                    Console.print(". It's not a button.", ConsoleColor.RED);
+                }
+                return;
+            }
+        }
+    }
+}
+

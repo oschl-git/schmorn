@@ -20,6 +20,8 @@ class CommandProcessor {
                 new Explore(game),
                 new Enter(game),
                 new TakeItem(game),
+                new Kill(game),
+                new PressButton(game),
                 new Quit()
         ));
 
