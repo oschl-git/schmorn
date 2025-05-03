@@ -2,7 +2,6 @@ package eu.oschl.ui.console.commands;
 
 import eu.oschl.textadventure.Game;
 import eu.oschl.textadventure.map.Passage;
-import eu.oschl.textadventure.map.Room;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
@@ -21,7 +20,8 @@ public class Enter implements Command {
                 "move",
                 "walk",
                 "through",
-                "e"
+                "pass through",
+                "open",
         };
     }
 
@@ -54,14 +54,23 @@ public class Enter implements Command {
         }
 
         if (passage == null) {
-            Console.print("Schmorn doesn't see this passage.", ConsoleColor.RED);
+            Console.print("This passage does not exist.", ConsoleColor.RED);
             return;
         }
 
-        var result = passage.passThrough();
+        var result = game.getActionController().walkThroughPassage(passage);
 
         if (!result) {
-            Console.print("The passage is blocked, Schmorn can't pass through.", ConsoleColor.RED);
+            if (game.getCurrentRoom().getEnemy().isPresent()) {
+                Console.print(
+                        game.getCurrentRoom().getEnemy().get().getName() + " blocks your way. You can only go back.",
+                        ConsoleColor.RED
+                );
+            } else if (passage.getBlockage().isPresent()) {
+                Console.print(passage.getBlockage().get().getDescription(), ConsoleColor.RED);
+            } else {
+                Console.print("The passage is blocked.", ConsoleColor.RED);
+            }
             return;
         }
 
@@ -69,10 +78,17 @@ public class Enter implements Command {
     }
 
     private void printSuccessfulPassage() {
-        Console.print("Schmorn crawled through the ");
+        Console.print("Passed through the ");
         Console.print(game.getLastPassage().get().getName(), ConsoleColor.YELLOW);
         Console.print(" and entered ");
         Console.print(game.getCurrentRoom().getName(), ConsoleColor.BLUE);
         Console.print(".");
+
+        if (game.getCurrentRoom().getEnemy().isPresent()) {
+            Console.printLine();
+            Console.print("...", ConsoleColor.RED);
+            Console.printLine();
+            Console.print("You are not alone here.", ConsoleColor.RED);
+        }
     }
 }

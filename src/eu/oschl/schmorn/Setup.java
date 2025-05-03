@@ -29,7 +29,7 @@ class Setup {
         // Rooms
         var royalWell = new Room(
                 "Royal Well",
-                "The well that the evil witch, Oglunda, ruler of the 7 swamps, threw you into. It is dark and wet."
+                "The well that the evil witch, Oglunda, ruler of the 7 swamps, threw Schmorn into. It is dark and wet."
         );
 
         var crossroads = new Room(
@@ -112,66 +112,66 @@ class Setup {
                 "A way out. Are you certain you are ready to leave?"
         );
 
-        var royalWellCrossroadsPassage = new Passage("Rusted door", false);
+        var royalWellCrossroadsPassage = new Passage("rusted door", false);
         royalWellCrossroadsPassage.addRoom(royalWell);
         royalWellCrossroadsPassage.addRoom(crossroads);
 
-        var crossroadsSewerEntrancePassage = new Passage("Sewer hatch", false);
+        var crossroadsSewerEntrancePassage = new Passage("sewer hatch", false);
         crossroadsSewerEntrancePassage.addRoom(crossroads);
         crossroadsSewerEntrancePassage.addRoom(sewerEntrance);
 
-        var sewerEntranceSwordsmithRatsLairPassage = new Passage("Sliding iron door", true);
+        var sewerEntranceSwordsmithRatsLairPassage = new Passage("sliding iron door", true);
         sewerEntranceSwordsmithRatsLairPassage.addRoom(sewerEntrance);
         sewerEntranceSwordsmithRatsLairPassage.addRoom(swordsmithRatsLair);
         var sewerEntranceSwordsmithRatsLairPassageBlockage = new Blockage(
-                "The door can't be opened and does not have a keyhole",
+                "The door can't be opened and does not have a keyhole.",
                 1
         );
         sewerEntranceSwordsmithRatsLairPassage.setBlockage(sewerEntranceSwordsmithRatsLairPassageBlockage);
 
-        var crossroadsPrisonEntrancePassage = new Passage("Prison threshold", true);
+        var crossroadsPrisonEntrancePassage = new Passage("prison threshold", true);
         crossroadsPrisonEntrancePassage.addRoom(crossroads);
         crossroadsPrisonEntrancePassage.addRoom(prisonEntrance);
 
-        var prisonEntranceCellAPassage = new Passage("Cell door A", false);
+        var prisonEntranceCellAPassage = new Passage("cell door A", false);
         prisonEntranceCellAPassage.addRoom(prisonEntrance);
         prisonEntranceCellAPassage.addRoom(cellA);
 
-        var cellACellBPassage = new Passage("Cell door B", false);
+        var cellACellBPassage = new Passage("cell door B", false);
         cellACellBPassage.addRoom(cellA);
         cellACellBPassage.addRoom(cellB);
 
-        var cellBGuardRoomPassage = new Passage("Guard room door", true);
+        var cellBGuardRoomPassage = new Passage("guard room door", true);
         cellBGuardRoomPassage.addRoom(cellB);
         cellBGuardRoomPassage.addRoom(guardRoom);
 
-        var cellBPrisonsEndPassage = new Passage("Iron door", false);
+        var cellBPrisonsEndPassage = new Passage("iron door", false);
         cellBPrisonsEndPassage.addRoom(cellB);
         cellBPrisonsEndPassage.addRoom(prisonsEnd);
 
-        var crossroadsDarkEntrancePassage = new Passage("Dark passage", true);
+        var crossroadsDarkEntrancePassage = new Passage("dark passage", true);
         crossroadsDarkEntrancePassage.addRoom(crossroads);
         crossroadsDarkEntrancePassage.addRoom(darkEntrance);
 
         var crossroadsDarkEntrancePassageBlockage = new Blockage(
-                "The door is locked and has a giant, rusty keyhole.",
+                "The door is locked. It has a large rusty keyhole, but you can't see through it, as if it was obscured by some dark magic.",
                 1
         );
         crossroadsDarkEntrancePassage.setBlockage(crossroadsDarkEntrancePassageBlockage);
 
-        var darkEntranceBlackAltarPassage = new Passage("Menacing black door", false);
+        var darkEntranceBlackAltarPassage = new Passage("menacing black door", false);
         darkEntranceBlackAltarPassage.addRoom(darkEntrance);
         darkEntranceBlackAltarPassage.addRoom(blackAltar);
 
-        var blackAltarShadowChamberPassage = new Passage("Shadow curtain", false);
+        var blackAltarShadowChamberPassage = new Passage("shadow curtain", false);
         blackAltarShadowChamberPassage.addRoom(blackAltar);
         blackAltarShadowChamberPassage.addRoom(shadowChamber);
 
-        var blackAltarPathwaysEndPassage = new Passage("Rotted door", false);
+        var blackAltarPathwaysEndPassage = new Passage("rotten door", false);
         blackAltarPathwaysEndPassage.addRoom(blackAltar);
         blackAltarPathwaysEndPassage.addRoom(pathwaysEnd);
 
-        var crossroadsRoyalKitchensEntrancePassage = new Passage("Kitchen door", true);
+        var crossroadsRoyalKitchensEntrancePassage = new Passage("kitchen door", true);
         crossroadsRoyalKitchensEntrancePassage.addRoom(crossroads);
         crossroadsRoyalKitchensEntrancePassage.addRoom(royalKitchensEntrance);
 
@@ -181,20 +181,24 @@ class Setup {
         );
         crossroadsRoyalKitchensEntrancePassage.setBlockage(crossroadsRoyalKitchensEntrancePassageBlockage);
 
-        var royalKitchensEntrancePantryPassage = new Passage("Pantry door", false);
+        var royalKitchensEntrancePantryPassage = new Passage("pantry door", false);
         royalKitchensEntrancePantryPassage.addRoom(royalKitchensEntrance);
         royalKitchensEntrancePantryPassage.addRoom(pantry);
 
-        var pantryKitchensEndPassage = new Passage("Kitchen door", false);
+        var pantryKitchensEndPassage = new Passage("kitchen door", false);
         pantryKitchensEndPassage.addRoom(pantry);
         pantryKitchensEndPassage.addRoom(kitchensEnd);
 
-        var crossroadsDungeonExitPassage = new Passage("Stone lift", true);
+        var crossroadsDungeonExitPassage = new Passage(
+                "stone lift",
+                "a magical lift leading out of the dungeon",
+                false
+        );
         crossroadsDungeonExitPassage.addRoom(crossroads);
         crossroadsDungeonExitPassage.addRoom(dungeonExit);
 
         var crossroadsDungeonExitPassageBlockage = new Blockage(
-                "The lift is inactive and does not move. There is a panel with three mysteriously shaped holes.",
+                "The lift is inactive and does not move. There is a magical panel with three mysteriously shaped holes.",
                 3
         );
         crossroadsDungeonExitPassage.setBlockage(crossroadsDungeonExitPassageBlockage);
@@ -202,62 +206,62 @@ class Setup {
 
         // Add game objects
         var swordsmithRatsLairEntrance = new Button(
-                "Steel button",
-                "An ornamented button made of slightly rusted steel",
+                "steel button",
+                "an ornamented button made of slightly rusted steel",
                 sewerEntranceSwordsmithRatsLairPassageBlockage
         );
         prisonEntrance.addObject(swordsmithRatsLairEntrance);
 
         var sword = new Weapon(
-                "Sword",
-                "A steel sword, expertly crafted by the Swordsmith Rat.",
+                "rat's sword",
+                "a steel sword, expertly crafted by the Swordsmith Rat",
                 10
         );
         swordsmithRatsLair.addObject(sword);
         
         var darkKey = new PickableObject(
-                "Dark key",
-                "A huge, menacing key, made out of black iron",
+                "dark key",
+                "a huge, menacing key, made out of black iron",
                 new Room[]{crossroads},
                 crossroadsDarkEntrancePassageBlockage
         );
         guardRoom.addObject(darkKey);
 
         var kitchenKey = new PickableObject(
-                "Kitchen key",
-                "A small, delicate key, made out of gold",
+                "kitchen key",
+                "a small, golden, delicate key",
                 new Room[]{crossroads},
                 crossroadsRoyalKitchensEntrancePassageBlockage
         );
         shadowChamber.addObject(kitchenKey);
 
         var frozenStone = new PickableObject(
-                "Frozen stone",
-                "A mysteriously shaped stone that is so cold it hurts to touch",
+                "frozen stone",
+                "a mysteriously shaped stone that is so cold it hurts to touch",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
         prisonsEnd.addObject(frozenStone);
 
         var darkStone = new PickableObject(
-                "Dark stone",
-                "A mysteriously shaped stone that is so dark it seems to absorb all light",
+                "dark stone",
+                "a mysteriously shaped stone that is so dark it seems to absorb all light",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
         pathwaysEnd.addObject(frozenStone);
 
         var fireStone = new PickableObject(
-                "Fire stone",
-                "A mysteriously shaped stone that is so hot it's almost impossible to carry",
+                "fire stone",
+                "a mysteriously shaped stone that is so hot it's almost impossible to carry",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
         kitchensEnd.addObject(fireStone);
 
         var unbreakableLadle = new Weapon(
-                "Unbreakable ladle",
-                "A mighty weapon, the most prized possession of the Head Chef. It is unbreakable and stronger than any sword.",
+                "The Unbreakable Ladle",
+                "a mighty weapon, the most prized possession of the Head Chef. It is unbreakable and stronger than any sword.",
                 20
         );
         kitchensEnd.addObject(unbreakableLadle);
@@ -265,7 +269,7 @@ class Setup {
         // Add enemies
         var swordsmithRat = new Enemy(
                 "Swordsmith Rat",
-                "A rat that is a master of his craft. He is also a rat.",
+                "A world-renowned swordsmith, who has been locked up by Schmorn 10 years ago in his royal dungeon.",
                 0
         );
         swordsmithRatsLair.setEnemy(swordsmithRat);
@@ -278,15 +282,15 @@ class Setup {
         cellA.setEnemy(awakenedPrisoner);
 
         var fallenRatLord = new Enemy(
-                "Fallen Rat Lord",
-                "A rat lord that has fallen from grace. He is now a shadow of his former self.",
+                "Jeremy, the Fallen Rat Lord",
+                "A rat lord that has once rallied all the rats by singing and dancing. Schmorn has locked him up in his royal dungeon.",
                 5
         );
         cellB.setEnemy(fallenRatLord);
 
         var x = new Enemy(
                 "X",
-                "A mysterious creature that is so dark it seems to absorb all light",
+                "A mysterious creature that is so dark it seems to absorb all light.",
                 5
         );
         blackAltar.setEnemy(x);

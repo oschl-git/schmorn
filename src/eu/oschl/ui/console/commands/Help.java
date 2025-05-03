@@ -16,7 +16,8 @@ public class Help implements Command {
     public String[] getTriggers() {
         return new String[]{
                 "help",
-                "h"
+                "actions",
+                "commands",
         };
     }
 
@@ -27,6 +28,11 @@ public class Help implements Command {
 
     @Override
     public void execute(String[] args) {
+        if (args.length > 0) {
+            Console.print("This doesn't make any sense.", ConsoleColor.RED);
+            return;
+        }
+
         Console.print("available actions:", ConsoleColor.BG_CYAN);
 
         for (var command : commands) {

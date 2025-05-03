@@ -1,15 +1,15 @@
 package eu.oschl.textadventure.entities;
 
-import eu.oschl.textadventure.exceptions.InvalidGameState;
-
 public class Enemy extends Entity {
     public final int strength;
     public final boolean finalBoss;
+    public boolean alive;
 
     public Enemy(String name, String description, int strength) {
         super(name, description);
         this.strength = strength;
         this.finalBoss = false;
+        alive = true;
     }
 
     public Enemy(String name, String description, int strength, boolean finalBoss) {
@@ -24,16 +24,16 @@ public class Enemy extends Entity {
             return false;
         }
 
-        try {
-            game.getCurrentRoom().setEnemy(null);
-        } catch (Exception exception) {
-            throw new InvalidGameState("Attempted to kill enemy that is not in current room", exception);
-        }
+        alive = false;
 
         if (finalBoss) {
             game.finish();
         }
 
         return true;
+    }
+
+    public boolean isAlive() {
+        return alive;
     }
 }

@@ -42,8 +42,8 @@ public class Passage {
         return name;
     }
 
-    public String getDescription() {
-        return description;
+    public Optional<String> getDescription() {
+        return Optional.ofNullable(description);
     }
 
     public boolean isSeeThrough() {
@@ -94,6 +94,17 @@ public class Passage {
     }
 
     public boolean canPass() {
+        var room = this.game.getCurrentRoom();
+
+        if (!room.getPassages().contains(this)) {
+            return false;
+        }
+
+        var playerGoingBack = game.getLastPassage().isPresent() && game.getLastPassage().get() == this;
+        if (room.isBlockedByEnemy() && !playerGoingBack) {
+            return false;
+        }
+
         return this.getBlockage().isEmpty();
     }
 

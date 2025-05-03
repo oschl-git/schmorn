@@ -74,6 +74,10 @@ public class Room {
         return Optional.ofNullable(enemy);
     }
 
+    public boolean isBlockedByEnemy() {
+        return getEnemy().isPresent() && getEnemy().get().isAlive();
+    }
+
     public ArrayList<GameObject> getObjects() {
         return objects;
     }

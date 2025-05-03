@@ -1,10 +1,7 @@
 package eu.oschl.ui.console;
 
 import eu.oschl.textadventure.Game;
-import eu.oschl.ui.console.commands.Command;
-import eu.oschl.ui.console.commands.Enter;
-import eu.oschl.ui.console.commands.Help;
-import eu.oschl.ui.console.commands.Quit;
+import eu.oschl.ui.console.commands.*;
 import eu.oschl.ui.console.exceptions.InvalidInput;
 
 import java.util.ArrayList;
@@ -20,6 +17,7 @@ class CommandProcessor {
 
     public static CommandProcessor create(Game game) {
         var commands = new ArrayList<Command>(List.of(
+                new Explore(game),
                 new Enter(game),
                 new Quit()
         ));

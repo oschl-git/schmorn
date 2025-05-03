@@ -5,18 +5,12 @@ import eu.oschl.textadventure.Game;
 public class Blockage {
     private Game game;
 
-    private final String name;
     private final String description;
     private int requiredInteractionsToPass;
 
-    public Blockage(String name, String description, int requiredInteractionsToPass) {
-        this.name = name;
+    public Blockage(String description, int requiredInteractionsToPass) {
         this.description = description;
         this.requiredInteractionsToPass = requiredInteractionsToPass;
-    }
-
-    public Blockage(String name, int requiredInteractionsToPass) {
-        this(name, null, requiredInteractionsToPass);
     }
 
     public void setGame(Game game) {
@@ -25,10 +19,6 @@ public class Blockage {
         }
 
         this.game = game;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getDescription() {
