@@ -17,12 +17,16 @@ public class Enter implements Command {
         return new String[]{
                 "enter",
                 "go through",
+                "go to",
                 "go",
                 "move through",
+                "move to",
                 "move",
                 "walk through",
+                "walk to",
                 "walk",
                 "pass through",
+                "pass to",
                 "pass",
                 "through",
                 "open",
@@ -36,6 +40,11 @@ public class Enter implements Command {
 
     @Override
     public void execute(String[] args) {
+        if (args.length == 0) {
+            Console.print("Where?", ConsoleColor.RED);
+            return;
+        }
+
         String input = String.join(" ", args);
 
         var passages = this.game.getCurrentRoom().getPassages();
