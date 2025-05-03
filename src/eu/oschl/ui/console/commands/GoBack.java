@@ -5,73 +5,42 @@ import eu.oschl.textadventure.map.Passage;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
-public class Enter implements Command {
+public class GoBack implements Command {
     private final Game game;
 
-    public Enter(Game game) {
+    public GoBack(Game game) {
         this.game = game;
     }
 
     @Override
     public String[] getTriggers() {
         return new String[]{
-                "enter",
-                "go through",
-                "go to",
-                "move through",
-                "move to",
-                "move",
-                "walk through",
-                "walk to",
-                "walk",
-                "pass through",
-                "pass to",
-                "pass",
-                "through",
-                "open",
+                "go back",
+                "return",
+                "back",
         };
     }
 
     @Override
     public String getDescription() {
-        return "walk through a passage";
+        return "return to previous room";
     }
 
     @Override
     public void execute(String[] args) {
-        if (args.length == 0) {
-            Console.print("Where?", ConsoleColor.RED);
+        if (args.length > 0) {
+            Console.print("This doesn't make any sense.", ConsoleColor.RED);
             return;
         }
 
-        String input = String.join(" ", args);
-
-        var passages = this.game.getCurrentRoom().getPassages();
-        Passage passage = null;
-
-        for (Passage p : passages) {
-            if (p.getName().equalsIgnoreCase(input)) {
-                passage = p;
-                break;
-            }
-        }
-
-        if (passage == null) {
-            for (Passage p : passages) {
-                if (p.getOtherRoom(game.getCurrentRoom()).getName().equalsIgnoreCase(input)) {
-                    passage = p;
-                    break;
-                }
-            }
-        }
-
-        if (passage == null) {
-            Console.print("This passage does not exist.", ConsoleColor.RED);
+        if (game.getLastPassage().isEmpty()) {
+            Console.print("You can't go back, you're right where you started.", ConsoleColor.RED);
             return;
         }
 
-        var result = passage.passThrough(false);
+        var passage = game.getLastPassage().get();
 
+        var result = passage.passThrough(true);
         if (!result) {
             if (game.getCurrentRoom().getEnemy().isPresent()) {
                 Console.print(
@@ -86,12 +55,14 @@ public class Enter implements Command {
             return;
         }
 
-        printSuccessfulPassage();
+        game.removeLastPassage();
+
+        printSuccessfulPassage(passage);
     }
 
-    private void printSuccessfulPassage() {
+    private void printSuccessfulPassage(Passage passage) {
         Console.print("Passed through the ");
-        Console.print(game.getLastPassage().get().getName(), ConsoleColor.YELLOW);
+        Console.print(passage.getName(), ConsoleColor.YELLOW);
         Console.print(" and entered ");
         Console.print(game.getCurrentRoom().getName(), ConsoleColor.BLUE);
         Console.print(".");

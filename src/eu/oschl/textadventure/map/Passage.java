@@ -73,12 +73,15 @@ public class Passage {
         }
     }
 
-    public boolean passThrough() {
+    public boolean passThrough(boolean goingBack) {
         if (!canPass()) {
             return false;
         }
 
-        this.game.setLastPassage(this);
+        if (!goingBack) {
+            game.addPreviousPassage(this);
+        }
+
         this.game.setCurrentRoom(getOtherRoom(game.getCurrentRoom()));
 
         return true;
