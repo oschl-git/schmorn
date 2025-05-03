@@ -88,7 +88,7 @@ class Setup {
         );
 
         var pathwaysEnd = new Room(
-                "Pathways End",
+                "Pathway's End",
                 "The end of the Pathway of Darkness, the darkest part of the Royal Dungeon."
         );
 
@@ -249,7 +249,7 @@ class Setup {
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
-        pathwaysEnd.addObject(frozenStone);
+        pathwaysEnd.addObject(darkStone);
 
         var fireStone = new InventoryItem(
                 "fire stone",
@@ -260,8 +260,8 @@ class Setup {
         kitchensEnd.addObject(fireStone);
 
         var unbreakableLadle = new Weapon(
-                "The Unbreakable Ladle",
-                "a mighty weapon, the most prized possession of the Head Chef. It is unbreakable and stronger than any sword.",
+                "unbreakable ladle",
+                "a mighty weapon, the most prized possession of the Head Chef, unbreakable and stronger than any sword",
                 20
         );
         kitchensEnd.addObject(unbreakableLadle);

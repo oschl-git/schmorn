@@ -97,11 +97,11 @@ public class Enter implements Command {
         Console.print(game.getCurrentRoom().getName(), ConsoleColor.BLUE);
         Console.print(".");
 
-        if (game.getCurrentRoom().getEnemy().isPresent()) {
+        if (game.getCurrentRoom().isBlockedByEnemy()) {
             Console.printLine();
-            Console.print("...", ConsoleColor.RED);
+            Console.print("...", ConsoleColor.WHITE);
             Console.printLine();
-            Console.print("You are not alone here.", ConsoleColor.RED);
+            Console.print("You are not alone here.", ConsoleColor.WHITE);
         }
     }
 }

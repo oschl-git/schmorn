@@ -19,9 +19,11 @@ class CommandProcessor {
         var commands = new ArrayList<>(List.of(
                 new Explore(game),
                 new Enter(game),
+                new Inventory(game),
                 new TakeItem(game),
-                new Kill(game),
+                new UseItem(game),
                 new PressButton(game),
+                new Kill(game),
                 new Quit()
         ));
 

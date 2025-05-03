@@ -52,7 +52,7 @@ public class TakeItem implements Command {
                         if (result) {
                             Console.print("Item ");
                             Console.print(item.getName(), ConsoleColor.BG_MAGENTA);
-                            Console.print("added to inventory.");
+                            Console.print(" added to inventory.");
                         } else {
                             Console.print("You are carrying too many items.", ConsoleColor.RED);
                         }
@@ -66,6 +66,8 @@ public class TakeItem implements Command {
                 return;
             }
         }
+
+        Console.print("That item is not here.", ConsoleColor.RED);
     }
 }
 

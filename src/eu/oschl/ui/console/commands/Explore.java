@@ -78,7 +78,7 @@ public class Explore implements Command {
             for (var object : objects) {
                 Console.printLine();
                 Console.print(" * " + object.getName(), ConsoleColor.MAGENTA);
-                Console.print(", " + object.getDescription());
+                Console.print(", " + object.getDescription(), ConsoleColor.WHITE);
             }
         }
 
@@ -97,7 +97,7 @@ public class Explore implements Command {
                 Console.print(" * " + passage.getName(), ConsoleColor.YELLOW);
 
                 if (passage.getDescription().isPresent()) {
-                    Console.print(", " + passage.getDescription().get());
+                    Console.print(", " + passage.getDescription().get(), ConsoleColor.WHITE);
                 }
 
                 if (passage.isSeeThrough()) {

@@ -16,7 +16,13 @@ public class InventoryItem extends PickableObject {
     }
 
     public boolean pickUp() {
-        return game.getInventory().addItem(this);
+        var result = game.getInventory().addItem(this);
+
+        if (result) {
+            game.getCurrentRoom().removeObject(this);
+        }
+
+        return result;
     }
 
     public boolean use() {

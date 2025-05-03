@@ -57,6 +57,8 @@ public class PressButton implements Command {
                 return;
             }
         }
+
+        Console.print("That item is not here.", ConsoleColor.RED);
     }
 }
 

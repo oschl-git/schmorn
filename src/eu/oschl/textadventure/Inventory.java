@@ -1,6 +1,6 @@
 package eu.oschl.textadventure;
 
-import eu.oschl.textadventure.objects.PickableObject;
+import eu.oschl.textadventure.objects.InventoryItem;
 import eu.oschl.textadventure.objects.Weapon;
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.Optional;
 public class Inventory {
     private static final int MAX_ITEMS = 5;
 
-    public final ArrayList<PickableObject> items;
+    public final ArrayList<InventoryItem> items;
     public Weapon weapon;
 
     public Inventory() {
@@ -17,7 +17,7 @@ public class Inventory {
         this.weapon = null;
     }
 
-    public boolean addItem(PickableObject item) {
+    public boolean addItem(InventoryItem item) {
         if (items.size() >= MAX_ITEMS) {
             return false;
         }
@@ -26,7 +26,7 @@ public class Inventory {
         return true;
     }
 
-    public boolean removeItem(PickableObject item) {
+    public boolean removeItem(InventoryItem item) {
         if (!items.contains(item)) {
             return false;
         }
@@ -35,7 +35,7 @@ public class Inventory {
         return true;
     }
 
-    public ArrayList<PickableObject> getItems() {
+    public ArrayList<InventoryItem> getItems() {
         return items;
     }
 
