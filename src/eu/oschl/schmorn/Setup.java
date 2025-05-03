@@ -208,6 +208,7 @@ class Setup {
         var swordsmithRatsLairEntrance = new Button(
                 "steel button",
                 "an ornamented button made of slightly rusted steel",
+                "Schmorn presses the button and hears a distant scraping sound.",
                 sewerEntranceSwordsmithRatsLairPassageBlockage
         );
         prisonEntrance.addObject(swordsmithRatsLairEntrance);
@@ -215,6 +216,7 @@ class Setup {
         var sword = new Weapon(
                 "ratsword",
                 "a steel sword, expertly crafted by the Swordsmith Rat",
+                "You attack with the Ratsword.",
                 10
         );
         swordsmithRatsLair.addObject(sword);
@@ -222,6 +224,7 @@ class Setup {
         var darkKey = new InventoryItem(
                 "dark key",
                 "a huge, menacing key, made out of black iron",
+                "You used the key to unlock the dark passage.",
                 new Room[]{crossroads},
                 crossroadsDarkEntrancePassageBlockage
         );
@@ -230,6 +233,7 @@ class Setup {
         var kitchenKey = new InventoryItem(
                 "kitchen key",
                 "a small, golden, delicate key",
+                "You used the key to unlock the kitchen door.",
                 new Room[]{crossroads},
                 crossroadsRoyalKitchensEntrancePassageBlockage
         );
@@ -238,6 +242,7 @@ class Setup {
         var frozenStone = new InventoryItem(
                 "frozen stone",
                 "a mysteriously shaped stone that is so cold it hurts to touch",
+                "You inserted the stone into the elevator panel.",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
@@ -246,6 +251,7 @@ class Setup {
         var darkStone = new InventoryItem(
                 "dark stone",
                 "a mysteriously shaped stone that is so dark it seems to absorb all light",
+                "You inserted the stone into the elevator panel.",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
@@ -254,6 +260,7 @@ class Setup {
         var fireStone = new InventoryItem(
                 "fire stone",
                 "a mysteriously shaped stone that is so hot it's almost impossible to carry",
+                "You inserted the stone into the elevator panel.",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
@@ -262,6 +269,7 @@ class Setup {
         var unbreakableLadle = new Weapon(
                 "unbreakable ladle",
                 "a mighty weapon, the most prized possession of the Head Chef, unbreakable and stronger than any sword",
+                "You attack with the mighy Unbreakable Ladle.",
                 20
         );
         kitchensEnd.addObject(unbreakableLadle);

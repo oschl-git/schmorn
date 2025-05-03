@@ -40,9 +40,7 @@ public class PressButton implements Command {
                     var result = button.press();
 
                     if (result) {
-                        Console.print("You pressed ");
-                        Console.print(button.getName(), ConsoleColor.BG_MAGENTA);
-                        Console.print(".");
+                        Console.print(button.getPressText(), ConsoleColor.MAGENTA);
                     } else {
                         Console.print("Button ", ConsoleColor.RED);
                         Console.print(button.getName(), ConsoleColor.BG_MAGENTA);

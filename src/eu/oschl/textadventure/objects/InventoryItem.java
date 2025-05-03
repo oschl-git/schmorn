@@ -6,13 +6,19 @@ import eu.oschl.textadventure.map.Room;
 import java.util.Arrays;
 
 public class InventoryItem extends PickableObject {
+    private final String useText;
     private final Room[] canBeUsedIn;
     private final Blockage interactsWith;
 
-    public InventoryItem(String name, String description, Room[] canBeUsedIn, Blockage interactsWith) {
+    public InventoryItem(String name, String description, String useText, Room[] canBeUsedIn, Blockage interactsWith) {
         super(name, description);
+        this.useText = useText;
         this.canBeUsedIn = canBeUsedIn;
         this.interactsWith = interactsWith;
+    }
+
+    public String getUseText() {
+        return useText;
     }
 
     public boolean pickUp() {

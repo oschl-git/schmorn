@@ -58,6 +58,13 @@ public class Kill implements Command {
         var result = enemy.kill();
 
         if (result) {
+            if (game.getInventory().getWeapon().isPresent()) {
+                Console.print(game.getInventory().getWeapon().get().getAttackText());
+            } else {
+                Console.print("You attack with your bare hands.");
+            }
+            Console.printLine();
+
             Console.print("You have defeated ");
             Console.print(enemy.getName(), ConsoleColor.BG_RED);
             Console.print(".");

@@ -43,9 +43,7 @@ public class UseItem implements Command {
         var result = item.use();
 
         if (result) {
-            Console.print("Used ", ConsoleColor.MAGENTA);
-            Console.print(item.getName(), ConsoleColor.BG_MAGENTA);
-            Console.print(".", ConsoleColor.MAGENTA);
+            Console.print(item.getUseText(), ConsoleColor.MAGENTA);
         } else {
             Console.print("You can't use ", ConsoleColor.RED);
             Console.print(item.getName(), ConsoleColor.MAGENTA);

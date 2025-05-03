@@ -1,7 +1,6 @@
 package eu.oschl.ui.console.commands;
 
 import eu.oschl.textadventure.Game;
-import eu.oschl.textadventure.objects.InventoryItem;
 import eu.oschl.textadventure.objects.PickableObject;
 import eu.oschl.textadventure.objects.Weapon;
 import eu.oschl.ui.console.Console;
@@ -50,11 +49,11 @@ public class TakeItem implements Command {
                         }
                     } else {
                         if (result) {
-                            Console.print("Item ");
+                            Console.print("Item ", ConsoleColor.MAGENTA);
                             Console.print(item.getName(), ConsoleColor.BG_MAGENTA);
                             Console.print(" added to inventory.");
                         } else {
-                            Console.print("You are carrying too many items.", ConsoleColor.RED);
+                            Console.print("You are carrying too many items.", ConsoleColor.MAGENTA);
                         }
                     }
 
