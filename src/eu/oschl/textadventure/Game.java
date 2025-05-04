@@ -9,8 +9,6 @@ import java.util.Optional;
 import java.util.Stack;
 
 public class Game {
-    private final ActionController actionController;
-
     private final String prologue;
     private final String epilogue;
     private final String[] unknownCommandMessages;
@@ -22,8 +20,6 @@ public class Game {
     private boolean runnning;
 
     public Game(String prologue, String epilogue, String[] unknownCommandMessages) {
-        this.actionController = new ActionController(this);
-
         this.prologue = prologue;
         this.epilogue = epilogue;
         this.unknownCommandMessages = unknownCommandMessages;
@@ -32,10 +28,6 @@ public class Game {
         this.rooms = new ArrayList<>();
         this.previousPassages = new Stack<>();
         this.runnning = true;
-    }
-
-    public ActionController getActionController() {
-        return actionController;
     }
 
     public String getPrologue() {
