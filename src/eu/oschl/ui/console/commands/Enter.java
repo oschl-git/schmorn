@@ -1,6 +1,7 @@
 package eu.oschl.ui.console.commands;
 
 import eu.oschl.textadventure.Game;
+import eu.oschl.textadventure.exceptions.InvalidGameState;
 import eu.oschl.textadventure.map.Passage;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
@@ -90,6 +91,10 @@ public class Enter implements Command {
     }
 
     private void printSuccessfulPassage() {
+        if (game.getLastPassage().isEmpty()) {
+            throw new InvalidGameState("Last passages stack is empty even though a passage was passed");
+        }
+
         Console.print("Passed through the ");
         Console.print(game.getLastPassage().get().getName(), ConsoleColor.YELLOW);
         Console.print(" and entered ");
@@ -101,6 +106,11 @@ public class Enter implements Command {
             Console.print("...", ConsoleColor.WHITE);
             Console.printLine();
             Console.print("There is somebody in here.", ConsoleColor.WHITE);
+        }
+
+        if (!game.getCurrentRoom().wasEntered() && game.getCurrentRoom().getEnterText().isPresent()) {
+            Console.printLine();
+            Console.print(game.getCurrentRoom().getEnterText().get());
         }
     }
 }

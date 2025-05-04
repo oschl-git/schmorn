@@ -63,6 +63,11 @@ public class Slay implements Command {
                 Console.printLine();
             }
 
+            if (enemy.getKillText().isPresent()) {
+                Console.printLine();
+                Console.print(enemy.getKillText().get());
+            }
+
             Console.print(enemy.getName(), ConsoleColor.BG_RED);
             Console.print(" lies murdered on the floor.");
         } else {

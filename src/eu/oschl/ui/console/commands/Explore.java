@@ -102,7 +102,7 @@ public class Explore implements Command {
                     Console.print(", " + passage.getDescription().get(), ConsoleColor.WHITE);
                 }
 
-                if (passage.isSeeThrough()) {
+                if (passage.isSeeThrough() || passage.getOtherRoom(room).wasEntered()) {
                     Console.print(" - leading to ");
                     Console.print(passage.getOtherRoom(room).getName(), ConsoleColor.BLUE);
                 } else {

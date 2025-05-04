@@ -13,16 +13,25 @@ public class Room {
 
     private final String name;
     private final String description;
+    private final String enterText;
 
     private final HashSet<Passage> passages;
     private final ArrayList<GameObject> objects;
     private Enemy enemy;
 
-    public Room(String name, String description) {
+    private boolean entered;
+
+    public Room(String name, String description, String enterText) {
         this.name = name;
         this.description = description;
+        this.enterText = enterText;
         this.passages = new HashSet<>();
         this.objects = new ArrayList<>();
+        this.entered = false;
+    }
+
+    public Room(String name, String description) {
+        this(name, description, null);
     }
 
     public void setGame(Game game) {
@@ -51,6 +60,20 @@ public class Room {
 
     public String getDescription() {
         return description;
+    }
+
+    public Optional<String> getEnterText() {
+        return Optional.ofNullable(enterText);
+    }
+
+    public boolean enter() {
+        game.setCurrentRoom(this);
+        entered = true;
+        return true;
+    }
+
+    public boolean wasEntered() {
+        return entered;
     }
 
     public void addPassage(Passage passage) {
