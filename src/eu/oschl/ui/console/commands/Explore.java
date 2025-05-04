@@ -49,9 +49,8 @@ public class Explore implements Command {
                 Console.printLine();
                 Console.printLine();
 
-                Console.print("In the middle of the room stands ", ConsoleColor.RED);
                 Console.print(room.getEnemy().get().getName(), ConsoleColor.BG_RED);
-                Console.print(".", ConsoleColor.RED);
+                Console.print(" blocks the way.", ConsoleColor.RED);
                 Console.printLine();
                 Console.print(room.getEnemy().get().getDescription(), ConsoleColor.RED);
                 Console.printLine();

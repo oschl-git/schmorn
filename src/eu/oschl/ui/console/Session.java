@@ -37,6 +37,7 @@ public class Session {
             Console.printLine();
         }
 
+        Console.printLine();
         Console.print(game.getEpilogue());
     }
 }

@@ -72,7 +72,8 @@ class Setup {
 
         var swordsmithRatsLair = new Room(
                 "Swordsmith Rat's Lair",
-                "The lair of the Rat Swordsmith. He is a master of his craft, but he is also a rat."
+                "The lair of the Rat Swordsmith. He is a master of his craft, but he is also a rat.",
+                "Schmorn enters the chamber and is greeted by a unnerving sight. The Swordsmith Rat is lying on the floor, surrounded by his tools and weapons. He looks up at Schmorn with a mixture of fear and anger. Once a swordsmith of the greatest reputation, he has been broken down by Schmorn's imprisonment and has produced no weapons for his armies."
         );
 
         var prisonEntrance = new Room(
@@ -306,23 +307,24 @@ class Setup {
         var swordsmithRat = new Enemy(
                 "Swordsmith Rat",
                 "A world-renowned swordsmith, locked up in the Royal Dungeon by prince Schmorn in hopes of getting him to craft powerful weapons for his armies.",
+                "The swordsmith does not protest or fight back, accepting his fate. Schmorn kills him with a single unarmed blow.",
                 0
         );
         swordsmithRatsLair.setEnemy(swordsmithRat);
 
         var awakenedPrisoner = new Enemy(
                 "Awakened Prisoner",
-                "From this prisoner's appearance, it is clear that he is already dead. However, he is moving and dangerous.",
+                "From this prisoner's appearance, it is clear that she is already dead. Nonetheless, she is moving and dangerous.",
                 5
         );
         cellA.setEnemy(awakenedPrisoner);
 
-        var fallenRatLord = new Enemy(
-                "Jeremy, the Fallen Rat Lord",
-                "A rat lord that has once rallied all the rats by singing and dancing. Schmorn has locked him up in his royal dungeon.",
+        var jeremy = new Enemy(
+                "Jeremy",
+                "A rat lord who has once rallied all the rats by singing and dancing. Jealous of his charisma and influence, Schmorn has locked him up in his Royal Dungeon.",
                 5
         );
-        cellB.setEnemy(fallenRatLord);
+        cellB.setEnemy(jeremy);
 
         var x = new Enemy(
                 "X",
@@ -337,6 +339,13 @@ class Setup {
                 10
         );
         pantry.setEnemy(headChef);
+
+        var oglunda = new Enemy(
+                "Oglunda",
+                "The witch Oglunda, ruler of the Seven Swamps. She is the one who cursed Schmorn.",
+                15,
+                true
+        );
 
         // Create game object
         var game = new Game(

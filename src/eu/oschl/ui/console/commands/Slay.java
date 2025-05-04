@@ -60,14 +60,15 @@ public class Slay implements Command {
         if (result) {
             if (game.getInventory().getWeapon().isPresent()) {
                 Console.print(game.getInventory().getWeapon().get().getAttackText());
-                Console.printLine();
             }
 
             if (enemy.getKillText().isPresent()) {
                 Console.printLine();
                 Console.print(enemy.getKillText().get());
+                Console.printLine();
             }
 
+            Console.printLine();
             Console.print(enemy.getName(), ConsoleColor.BG_RED);
             Console.print(" lies murdered on the floor.");
         } else {

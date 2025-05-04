@@ -69,6 +69,7 @@ public class Room {
     public boolean enter() {
         game.setCurrentRoom(this);
         entered = true;
+
         return true;
     }
 

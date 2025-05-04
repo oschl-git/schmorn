@@ -71,6 +71,8 @@ public class Enter implements Command {
             return;
         }
 
+        var printEnterText = !passage.getOtherRoom(game.getCurrentRoom()).wasEntered();
+
         var result = passage.passThrough(false);
 
         if (!result) {
@@ -87,10 +89,10 @@ public class Enter implements Command {
             return;
         }
 
-        printSuccessfulPassage();
+        printSuccessfulPassage(printEnterText);
     }
 
-    private void printSuccessfulPassage() {
+    private void printSuccessfulPassage(boolean printEnterText) {
         if (game.getLastPassage().isEmpty()) {
             throw new InvalidGameState("Last passages stack is empty even though a passage was passed");
         }
@@ -108,9 +110,11 @@ public class Enter implements Command {
             Console.print("There is somebody in here.", ConsoleColor.WHITE);
         }
 
-        if (!game.getCurrentRoom().wasEntered() && game.getCurrentRoom().getEnterText().isPresent()) {
+        if (printEnterText && game.getCurrentRoom().getEnterText().isPresent()) {
+            Console.printLine();
             Console.printLine();
             Console.print(game.getCurrentRoom().getEnterText().get());
+            Console.printLine();
         }
     }
 }
