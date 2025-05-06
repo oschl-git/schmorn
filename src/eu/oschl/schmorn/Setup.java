@@ -15,31 +15,31 @@ class Setup {
         var prologue = """
                 The sun sets over a misty day as the witch Oglunda, ruler of the Seven Swamps, rides her carriage down the Royal Road. An agreement has been made, and she comes now to fulfil her side of it.
                 
-                The prince is waiting. Face illuminated by flickering candlelight, Schmorn, high prince of the Grey Princedom, stares out of the window of his highest tower and watches as the witch's carriage makes its way down towards the gate. When the carriage stops, he signals the guards, who obediently raise the iron bars.
+                The prince is waiting. Face illuminated by flickering candlelight, Schmorn, high prince of  the Grey Princedom, stares out of the window of his highest tower and watches as the witch's carriage makes its way towards the gate. When the carriage stops, he signals the guards, who reluctantly raise the iron bars.
                 
                 Moments later, Oglunda climbs the tower steps and enters. She sits across from the prince at a heavy wooden desk.
                 
-                "So, you're sure?" she asks, her voice raspy. "This is what you want? You've looked upon the world, weighed all the possibilities, and what you desire the most is unlimited power, no matter the cost?"
+                "So, you're sure?" she asks, her voice raspy. "This is what you want? You've looked upon the world, weighed all the possibilities, and decided that what you desire most is unlimited power, no matter the cost?"
                 
                 "Yes," Schmorn replies.
                 
-                "Do you believe this will give you what you lack? The kingdoms snicker behind closed doors, whispering of your blatant incompetence, mistreatment of your subjects, the living conditions of your people. 'An insecure prince for an insecure land,' they say. Have you perhaps considered that this will not change their minds? That this is not the right way to go about it?"
+                "Do you believe this will give you what you lack? The kingdoms snicker behind closed doors, whispering of your blatant incompetence, mistreatment of your subjects, the living conditions of your people. 'An insecure prince for an insecure land,' they say. Have you considered that this will not change their minds? That this is not the right way to go about it?"
                 
                 "They will fear me. All of them. None will be a match for what I'll be capable of," the prince replies, voice shaky with morbid excitement. "So keep your mouth shut, witch. You have not come here to speak of things already decided. Have you brought it?"
                 
                 "I have," Oglunda replies, reaches into her cloak and withdraws a small envelope, emptying its contents onto the table. In front of them now lies a small, silver ring, simple and unadorned, yet unnaturally beautiful.
                 
-                "I warn you for the last time, Schmorn, prince of the Grey Princedom. Once you wear it, there will be consequences. Both for your realm, and for your soul."
+                "I warn you for the last time, Schmorn, high prince of the Grey Princedom. Once you wear it, there will be consequences. Both for your realm, and for your soul."
                 
                 Schmorn, barely listening, eyes glued to the small ring, grabs it in his fingers and raises his hand toward a chandelier above. The ring reflects the golden light, casting delicate glimmers all around the room. He raises the ring finger of his left hand and determinedly puts it on.
                 
-                As he does so, his body starts to undulate and shift, and just a few seconds later, the prince is gone completely. On the table now lies the ring, and, right next to it, squirms a small, repulsive worm.
+                As he does so, his body starts to undulate and shift, and just a few moments later, the prince is gone completely. On the table now lies the ring, and, right next to it, squirms a large, repulsive worm.
                 
-                "I gave you a chance, idiot," she says, pockets the ring, pinching the worm between her fingers, and makes her way down the tower. In the courtyard, the people gather, murmuring.
+                "I gave you a chance, idiot," the witch says, pockets the ring, grabs the worm, and makes her way down the tower. In the courtyard, people gather, murmuring.
                 
-                "Look here!" she calls. "This is your prince. This is what remains of him. Take me to your deepest well!"
+                "Look here!" she calls and she raises Schmorn high above her head for everyone to see. "This is your prince. This is what remains of him. Take me to your deepest well!"
                 
-                The former prince's subjects obediently lead Oglunda towards an ancient stone well in the middle of the courtyard, where she stops and triumphantly casts the worm into the depths. The people cheer, finally free of the rule of an incompetent, dangerous tyrant.
+                The former prince's subjects lead Oglunda towards an ancient stone well in the middle of the courtyard, where she stops and triumphantly casts the worm into the depths. The people cheer, finally free of the rule of an incompetent, dangerous tyrant.
                 
                 And Schmorn falls...
                 """;
@@ -62,7 +62,7 @@ class Setup {
 
         var crossroads = new Room(
                 "Crossroads",
-                "A damp room in the Royal Dungeon, full of unnerving tunnels and entrances to other locations."
+                "A damp chamber in the Royal Dungeon, full of unnerving, dark tunnels and entrances to other locations."
         );
 
         var sewerEntrance = new Room(
@@ -73,12 +73,12 @@ class Setup {
         var swordsmithRatsLair = new Room(
                 "Swordsmith Rat's Lair",
                 "The lair of the Rat Swordsmith. He is a master of his craft, but he is also a rat.",
-                "Schmorn enters the chamber and is greeted by a unnerving sight. The Swordsmith Rat is lying on the floor, surrounded by his tools and weapons. He looks up at Schmorn with a mixture of fear and anger. Once a swordsmith of the greatest reputation, he has been broken down by Schmorn's imprisonment and has produced no weapons for his armies."
+                "Schmorn enters the chamber and is greeted by an unnerving sight. The Swordsmith Rat is lying on the floor, surrounded by his tools and weapons. He looks up at Schmorn with a mixture of fear and anger. Once a swordsmith of the greatest reputation, he has been broken down by Schmorn's imprisonment and has produced no remarkable weapons to speak of."
         );
 
         var prisonEntrance = new Room(
                 "Prison Entrance",
-                "An entrance room of the Royal Prison."
+                "An entrance room to Schmorn's Royal Prison."
         );
 
         var cellA = new Room(
@@ -93,7 +93,7 @@ class Setup {
 
         var guardRoom = new Room(
                 "Guard Room",
-                "Guard room of the Royal Prison."
+                "In days long gone, when the Grey Princedom wasn't in disarray, this room was occuppied by a guard who took care of the prisoners."
         );
 
         var prisonsEnd = new Room(
@@ -108,7 +108,8 @@ class Setup {
 
         var blackAltar = new Room(
                 "Black Altar",
-                "A black altar in the middle of the Royal Dungeon. It is covered in blood and bones."
+                "An enormous, menacing room, full of bones and dead bodies. The centerpiece of the room is a large, black altar made of stone, surrounded by a circle of candles. On the surface are strange runes and symbols, which appear to be bleeding.",
+                "Fear sets in as Schmorn enters the room, and nausea overcomes him. The air is putrid, and the stench of death is overwhelming. In the middle of the room stands a stone altar, covered in blood, surrounded by ominously flickering candles. The walls are adorned with grotesque carvings of twisted faces and bodies, and the floor is littered with bones and remnants of past sacrifices. Schmorn knows he is not alone. There is a being here, one not of this world."
         );
 
         var shadowChamber = new Room(
@@ -328,7 +329,8 @@ class Setup {
 
         var x = new Enemy(
                 "X",
-                "A mysterious creature that is so dark it seems to absorb all light.",
+                "A terrifying, dark creature, not of this world. Despite the candlelight, only darkness can be seen where X is standing; it's impossible to make out any of its features. The creature is a guardian of the altar.",
+                "As the blade of the Ratsword sinks into the creature's body, it lets out a horrible screech. The sound is so loud that it shatters the candles surrounding the altar, and the darkness surrounding X dissipates. The creature's body evaporates into smoke, leaving nothing behind.",
                 5
         );
         blackAltar.setEnemy(x);
