@@ -52,12 +52,13 @@ class Setup {
                 "Schmorn doesn't know how to do that.",
                 "Schmorn does not understand what that means.",
                 "Schmorn is confused.",
+                "Schmorn is not sure what to do.",
         };
 
         // Rooms
         var royalWell = new Room(
                 "Royal Well",
-                "The bottom of the deepest well of the Grey Princedom. Fortunately, there is no water in it."
+                "The bottom of the deepest well of the Grey Princedom. Fortunately for the prince, there is no water in it."
         );
 
         var crossroads = new Room(
@@ -73,7 +74,7 @@ class Setup {
         var swordsmithRatsLair = new Room(
                 "Swordsmith Rat's Lair",
                 "The lair of the Rat Swordsmith. He is a master of his craft, but he is also a rat.",
-                "Schmorn enters the chamber and is greeted by an unnerving sight. The Swordsmith Rat is lying on the floor, surrounded by his tools and weapons. He looks up at Schmorn with a mixture of fear and anger. Once a swordsmith of the greatest reputation, he has been broken down by Schmorn's imprisonment and has produced no remarkable weapons to speak of."
+                "Schmorn enters the chamber and is greeted by an unnerving sight. The Swordsmith Rat is lying on the floor, surrounded by his tools and weapons. He looks up at Schmorn with a mixture of fear and confusion - somehow, he seems to recognise Schmorn despite his new worm-like appearance. Once a swordsmith of the greatest reputation, he has been broken down by his imprisonment and has produced no remarkable weapons to speak of."
         );
 
         var prisonEntrance = new Room(
@@ -98,7 +99,7 @@ class Setup {
 
         var prisonsEnd = new Room(
                 "Prison's End",
-                "The end of the Royal Prison."
+                "The prison does not continue beyond this point."
         );
 
         var darkEntrance = new Room(
@@ -108,18 +109,18 @@ class Setup {
 
         var blackAltar = new Room(
                 "Black Altar",
-                "An enormous, menacing room, full of bones and dead bodies. The centerpiece of the room is a large, black altar made of stone, surrounded by a circle of candles. On the surface are strange runes and symbols, which appear to be bleeding.",
-                "Fear sets in as Schmorn enters the room, and nausea overcomes him. The air is putrid, and the stench of death is overwhelming. In the middle of the room stands a stone altar, covered in blood, surrounded by ominously flickering candles. The walls are adorned with grotesque carvings of twisted faces and bodies, and the floor is littered with bones and remnants of past sacrifices. Schmorn knows he is not alone. There is a being here, one not of this world."
+                "An enormous, menacing room, full of bones and dead bodies. The centerpiece is a large, black altar made of stone, surrounded by a circle of candles. On the surface are strange runes and symbols, which appear to be bleeding.",
+                "As Schmorn enters, fear and nausea overcomes him. The air is putrid, the room stinks of death. In the middle stands a stone altar, surrounded by candles. On the surface are strange runes and symbols, which appear to be bleeding. Schmorn knows he is not alone. There is a being here, one not of this world."
         );
 
         var shadowChamber = new Room(
                 "Shadow Chamber",
-                "A dark chamber in the Royal Dungeon. It is full of shadows and darkness."
+                "A dark chamber in the Royal Dungeon, where lanterns don't work and shadows reign."
         );
 
         var pathwaysEnd = new Room(
                 "Pathway's End",
-                "The end of the Pathway of Darkness, the darkest part of the Royal Dungeon."
+                "The Pathway of Darkness, the darkest part of the Royal Dungeon, does not continue beyond this point."
         );
 
         var royalKitchensEntrance = new Room(
@@ -134,7 +135,7 @@ class Setup {
 
         var kitchensEnd = new Room(
                 "Kitchen's End",
-                "The end of the Royal Kitchens."
+                "The Royal Kitchens end here."
         );
 
         var dungeonExit = new Room(
@@ -150,7 +151,7 @@ class Setup {
         crossroadsSewerEntrancePassage.addRoom(crossroads);
         crossroadsSewerEntrancePassage.addRoom(sewerEntrance);
 
-        var sewerEntranceSwordsmithRatsLairPassage = new Passage("sliding iron door", false);
+        var sewerEntranceSwordsmithRatsLairPassage = new Passage("sliding door", false);
         sewerEntranceSwordsmithRatsLairPassage.addRoom(sewerEntrance);
         sewerEntranceSwordsmithRatsLairPassage.addRoom(swordsmithRatsLair);
         var sewerEntranceSwordsmithRatsLairPassageBlockage = new Blockage(
@@ -184,12 +185,12 @@ class Setup {
         crossroadsDarkEntrancePassage.addRoom(darkEntrance);
 
         var crossroadsDarkEntrancePassageBlockage = new Blockage(
-                "The door is locked. It has a large rusty keyhole, which is impossible to see through, as if it was obscured by some dark magic.",
+                "The door is locked. It has a large rusty keyhole, which is impossible to see through, as it is obscured by dark magic.",
                 1
         );
         crossroadsDarkEntrancePassage.setBlockage(crossroadsDarkEntrancePassageBlockage);
 
-        var darkEntranceBlackAltarPassage = new Passage("menacing black door", false);
+        var darkEntranceBlackAltarPassage = new Passage("black door", false);
         darkEntranceBlackAltarPassage.addRoom(darkEntrance);
         darkEntranceBlackAltarPassage.addRoom(blackAltar);
 
@@ -278,14 +279,14 @@ class Setup {
         );
         prisonsEnd.addObject(frozenStone);
 
-        var darkStone = new InventoryItem(
-                "dark stone",
-                "a mysteriously shaped stone that is so dark it seems to absorb all light",
+        var bloodStone = new InventoryItem(
+                "blood stone",
+                "a blood-red stone, always wet with fresh blood, which cannot be washed off",
                 "Schmorn inserted the stone into the lift panel.",
                 new Room[]{crossroads},
                 crossroadsDungeonExitPassageBlockage
         );
-        pathwaysEnd.addObject(darkStone);
+        pathwaysEnd.addObject(bloodStone);
 
         var fireStone = new InventoryItem(
                 "fire stone",
@@ -298,8 +299,8 @@ class Setup {
 
         var unbreakableLadle = new Weapon(
                 "unbreakable ladle",
-                "a mighty weapon, the most prized possession of the Head Chef, unbreakable and stronger than any sword",
-                "Schmorn attacks with the mighy Unbreakable Ladle.",
+                "a mighty weapon, the most prized possession of the Head Chef, stronger than any sword",
+                "Schmorn performs a powerful attack with the mighy Unbreakable Ladle.",
                 20
         );
         royalKitchensEntrance.addObject(unbreakableLadle);
@@ -315,7 +316,7 @@ class Setup {
 
         var awakenedPrisoner = new Enemy(
                 "Awakened Prisoner",
-                "From this prisoner's appearance, it is clear that she is already dead. Nonetheless, she is moving and dangerous.",
+                "From this prisoner's appearance, it is clear that she is already dead. Nevertheless, she is moving and dangerous.",
                 5
         );
         cellA.setEnemy(awakenedPrisoner);

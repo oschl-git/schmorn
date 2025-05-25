@@ -55,7 +55,8 @@ public class Explore implements Command {
                 Console.print(room.getEnemy().get().getDescription(), ConsoleColor.RED);
                 Console.printLine();
                 Console.printLine();
-                Console.print(room.getEnemy().get().getName() + " must be defeated to continue further.");
+                Console.print(room.getEnemy().get().getName(), ConsoleColor.RED);
+                Console.print(" must be defeated to continue further.");
 
                 return;
             } else {
