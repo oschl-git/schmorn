@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Optional;
 
+/**
+ * Represents a room in the game.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Room {
     private Game game;
 
@@ -34,6 +39,11 @@ public class Room {
         this(name, description, null);
     }
 
+    /**
+     * Sets the game instance. This is typically called during the game's setup phase.
+     *
+     * @param game the game instance to associate
+     */
     public void setGame(Game game) {
         if (game == null) {
             return;
@@ -66,6 +76,38 @@ public class Room {
         return Optional.ofNullable(enterText);
     }
 
+    public HashSet<Passage> getPassages() {
+        return passages;
+    }
+
+    public ArrayList<GameObject> getObjects() {
+        return objects;
+    }
+
+    public Optional<Enemy> getEnemy() {
+        return Optional.ofNullable(enemy);
+    }
+
+    public boolean wasEntered() {
+        return entered;
+    }
+
+    /**
+     * Checks if the room is blocked by an enemy.
+     * An enemy is considered to block the room if it is present and alive.
+     *
+     * @return true if the room is blocked by an enemy, false otherwise
+     */
+    public boolean isBlockedByEnemy() {
+        return getEnemy().isPresent() && getEnemy().get().isAlive();
+    }
+
+    /**
+     * Marks the room as entered and sets it as the current room in the game.
+     * This method should be called when the player enters the room.
+     *
+     * @return true if the room was successfully entered, false otherwise
+     */
     public boolean enter() {
         game.setCurrentRoom(this);
         entered = true;
@@ -73,19 +115,21 @@ public class Room {
         return true;
     }
 
-    public boolean wasEntered() {
-        return entered;
-    }
-
+    /**
+     * Adds a passage to this room. A room can have multiple passages.
+     *
+     * @param passage the passage to add
+     */
     public void addPassage(Passage passage) {
         passage.setGame(game);
         passages.add(passage);
     }
 
-    public HashSet<Passage> getPassages() {
-        return passages;
-    }
-
+    /**
+     * Sets an enemy for this room.
+     *
+     * @param enemy the enemy to set, or null to remove any existing enemy
+     */
     public void setEnemy(Enemy enemy) {
         if (enemy != null) {
             enemy.setGame(game);
@@ -94,23 +138,21 @@ public class Room {
         this.enemy = enemy;
     }
 
-    public Optional<Enemy> getEnemy() {
-        return Optional.ofNullable(enemy);
-    }
-
-    public boolean isBlockedByEnemy() {
-        return getEnemy().isPresent() && getEnemy().get().isAlive();
-    }
-
-    public ArrayList<GameObject> getObjects() {
-        return objects;
-    }
-
+    /**
+     * Adds a game object to this room.
+     *
+     * @param object the object to add
+     */
     public void addObject(GameObject object) {
         object.setGame(game);
         objects.add(object);
     }
 
+    /**
+     * Removes a game object from this room.
+     *
+     * @param object the object to remove
+     */
     public void removeObject(GameObject object) {
         objects.remove(object);
     }

@@ -2,6 +2,12 @@ package eu.oschl.textadventure.objects;
 
 import eu.oschl.textadventure.Game;
 
+/**
+ * Represents a generic game object that can be part of the game world.
+ * This class serves as a base for all game objects, providing common properties and methods.
+ *
+ * @author Ondřej Schlaichert
+ */
 public abstract class GameObject {
     protected Game game;
 
@@ -13,6 +19,11 @@ public abstract class GameObject {
         this.description = description;
     }
 
+    /**
+     * Sets the game instance. This is typically called during the game's setup phase.
+     *
+     * @param game the game instance to associate
+     */
     public void setGame(Game game) {
         if (game == null) {
             return;

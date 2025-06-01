@@ -2,6 +2,11 @@ package eu.oschl.textadventure.entities;
 
 import java.util.Optional;
 
+/**
+ * Represents an enemy in the game.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Enemy extends Entity {
     public final String killText;
 
@@ -34,10 +39,23 @@ public class Enemy extends Entity {
         return Optional.ofNullable(killText);
     }
 
+    public int getStrength() {
+        return strength;
+    }
+
+    public boolean isFinalBoss() {
+        return finalBoss;
+    }
+
     public boolean isAlive() {
         return alive;
     }
 
+    /**
+     * Kills the enemy if the player has enough strength to do so.
+     *
+     * @return true if the enemy was killed, false otherwise
+     */
     public boolean kill() {
         var weapon = game.getInventory().getWeapon();
 

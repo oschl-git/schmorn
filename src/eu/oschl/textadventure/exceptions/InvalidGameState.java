@@ -1,5 +1,10 @@
 package eu.oschl.textadventure.exceptions;
 
+/**
+ * Exception thrown when the game is in an invalid state.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class InvalidGameState extends RuntimeException {
     public InvalidGameState() {
         super();

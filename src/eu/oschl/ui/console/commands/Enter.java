@@ -6,6 +6,11 @@ import eu.oschl.textadventure.map.Passage;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
+/**
+ * This command allows the player to enter a passage in the game.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Enter implements Command {
     private final Game game;
 

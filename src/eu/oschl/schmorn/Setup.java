@@ -9,6 +9,11 @@ import eu.oschl.textadventure.objects.Button;
 import eu.oschl.textadventure.objects.InventoryItem;
 import eu.oschl.textadventure.objects.Weapon;
 
+/**
+ * This class is responsible for setting up the game object
+ *
+ * @author Ondřej Schlaichert
+ */
 class Setup {
     public static Game createGame() {
         // Base game setup
@@ -349,6 +354,7 @@ class Setup {
                 15,
                 true
         );
+        dungeonExit.setEnemy(oglunda);
 
         // Create game object
         var game = new Game(

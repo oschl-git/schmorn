@@ -5,6 +5,11 @@ import eu.oschl.textadventure.exceptions.InvalidGameState;
 
 import java.util.Optional;
 
+/**
+ * Represents a passage between two rooms in the game.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Passage {
     private Game game;
 
@@ -26,6 +31,11 @@ public class Passage {
         this(name, null, seeThrough);
     }
 
+    /**
+     * Sets the game instance. This is typically called during the game's setup phase.
+     *
+     * @param game the game instance to associate
+     */
     public void setGame(Game game) {
         if (game == null) {
             return;
@@ -54,6 +64,16 @@ public class Passage {
         return rooms;
     }
 
+    public Optional<Blockage> getBlockage() {
+        return Optional.ofNullable(blockage);
+    }
+
+    /**
+     * Adds a room to this passage. A passage can only have two rooms.
+     *
+     * @param room the room to add
+     * @throws InvalidGameState if the passage already has two rooms
+     */
     public void addRoom(Room room) {
         room.addPassage(this);
         room.setGame(game);
@@ -73,6 +93,12 @@ public class Passage {
         }
     }
 
+    /**
+     * Attempts to pass through the passage to the other room.
+     *
+     * @param goingBack true if the player is going back through the passage they entered before, false otherwise
+     * @return true if the passage was successfully passed, false otherwise
+     */
     public boolean passThrough(boolean goingBack) {
         if (!canPass()) {
             return false;
@@ -87,15 +113,21 @@ public class Passage {
         return true;
     }
 
-    public Optional<Blockage> getBlockage() {
-        return Optional.ofNullable(blockage);
-    }
-
+    /**
+     * Sets the blockage for this passage.
+     *
+     * @param blockage the blockage to set
+     */
     public void setBlockage(Blockage blockage) {
         blockage.setGame(game);
         this.blockage = blockage;
     }
 
+    /**
+     * Checks if the player can pass through this passage.
+     *
+     * @return true if the player can pass, false otherwise
+     */
     public boolean canPass() {
         var room = this.game.getCurrentRoom();
 
@@ -111,6 +143,13 @@ public class Passage {
         return getBlockage().isEmpty() || getBlockage().get().canPass();
     }
 
+    /**
+     * Gets the other room connected by this passage.
+     *
+     * @param room the current room
+     * @return the other room connected by this passage
+     * @throws InvalidGameState if the provided room is not one of the rooms connected by this passage
+     */
     public Room getOtherRoom(Room room) {
         if (rooms[0] == room) {
             return rooms[1];

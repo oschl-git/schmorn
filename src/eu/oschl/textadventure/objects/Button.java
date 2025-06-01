@@ -2,6 +2,11 @@ package eu.oschl.textadventure.objects;
 
 import eu.oschl.textadventure.map.Blockage;
 
+/**
+ * Represents a button in the game that can be pressed exactly once to interact with a blockage.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Button extends GameObject {
     private final String pressText;
     private final Blockage interactsWith;
@@ -18,8 +23,21 @@ public class Button extends GameObject {
         return pressText;
     }
 
+    public Blockage getInteractsWith() {
+        return interactsWith;
+    }
+
+    public boolean isPressed() {
+        return pressed;
+    }
+
+    /**
+     * Attempts to press the button. If the button has already been pressed, it does nothing.
+     *
+     * @return true if the button was successfully pressed, false if it was already pressed
+     */
     public boolean press() {
-        if (pressed) {
+        if (isPressed()) {
             return false;
         }
 

@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Stack;
 
+/**
+ * Encapsulates the entire game, including its state, rooms, inventory, and control flow.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Game {
     private final String prologue;
     private final String epilogue;
@@ -42,24 +47,64 @@ public class Game {
         return unknownCommandMessages;
     }
 
-    public void addRoom(Room room) {
-        room.setGame(this);
-        this.rooms.add(room);
+    public Inventory getInventory() {
+        return inventory;
     }
 
-    public void setCurrentRoom(Room room) {
-        room.setGame(this);
-        this.currentRoom = room;
+    public ArrayList<Room> getRooms() {
+        return rooms;
     }
 
     public Room getCurrentRoom() {
         return currentRoom;
     }
 
+    public Stack<Passage> getPreviousPassages() {
+        return previousPassages;
+    }
+
+    public boolean isRunnning() {
+        return runnning;
+    }
+
+    public boolean isRunning() {
+        return runnning;
+    }
+
+    /**
+     * Adds a room to the game.
+     *
+     * @param room the room to add
+     */
+    public void addRoom(Room room) {
+        room.setGame(this);
+        this.rooms.add(room);
+    }
+
+    /**
+     * Sets the current room.
+     *
+     * @param room the room to set as the current room
+     */
+    public void setCurrentRoom(Room room) {
+        room.setGame(this);
+        this.currentRoom = room;
+    }
+
+    /**
+     * Adds a previous passage to the stack of previous passages.
+     *
+     * @param previousPassage the passage to add
+     */
     public void addPreviousPassage(Passage previousPassage) {
         previousPassages.push(previousPassage);
     }
 
+    /**
+     * Retrieves the last passage from the stack of previous passages.
+     *
+     * @return an Optional containing the last passage if it exists, or an empty Optional if the stack is empty
+     */
     public Optional<Passage> getLastPassage() {
         if (previousPassages.isEmpty()) {
             return Optional.empty();
@@ -68,6 +113,11 @@ public class Game {
         return Optional.ofNullable(previousPassages.peek());
     }
 
+    /**
+     * Removes the last passage from the stack of previous passages.
+     *
+     * @throws InvalidGameState if the stack is empty
+     */
     public void removeLastPassage() {
         if (previousPassages.isEmpty()) {
             throw new InvalidGameState("Attempted to remove last passage, but stack is empty");
@@ -76,18 +126,9 @@ public class Game {
         previousPassages.pop();
     }
 
-    public ArrayList<Room> getRooms() {
-        return rooms;
-    }
-
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-    public boolean isRunning() {
-        return runnning;
-    }
-
+    /**
+     * Finishes the game by setting the running state to false.
+     */
     public void finish() {
         this.runnning = false;
     }
