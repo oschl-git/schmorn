@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
  *
  * @author Ondřej Schlaichert
  */
-abstract class BaseGameTest {
+public abstract class BaseGameTest {
     protected Game game;
 
     @BeforeEach
