@@ -9,6 +9,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for the Inventory class.
+ *
+ * @author Ondřej Schlaichert
+ */
 class InventoryTest {
     private Inventory inventory;
 

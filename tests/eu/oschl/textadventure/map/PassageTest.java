@@ -8,6 +8,11 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for the Passage class.
+ *
+ * @author Ondřej Schlaichert
+ */
 class PassageTest extends BaseGameTest {
     @Test
     void testConstructorSetsFieldsCorrectly() {

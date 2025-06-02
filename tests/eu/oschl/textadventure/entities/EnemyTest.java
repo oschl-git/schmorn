@@ -7,6 +7,12 @@ import org.junit.jupiter.api.Test;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Tests for the Enemy class.
+ *
+ * @author Ondřej Schlaichert
+ */
 class EnemyTest extends BaseGameTest {
     @Test
     void testConstructorInitializesFields() {

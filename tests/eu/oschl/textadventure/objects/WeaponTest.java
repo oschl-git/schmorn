@@ -5,6 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for the Weapon class.
+ *
+ * @author Ondřej Schlaichert
+ */
 class WeaponTest extends BaseGameTest {
     @Test
     void testConstructorInitializesFields() {

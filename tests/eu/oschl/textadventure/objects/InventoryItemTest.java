@@ -7,6 +7,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for the InventoryItem class.
+ *
+ * @author Ondřej Schlaichert
+ */
 class InventoryItemTest extends BaseGameTest {
     @Test
     void testConstructorInitializesFields() {

@@ -50,7 +50,11 @@ class Setup {
                 """;
 
         var epilogue = """
-                Everyone is dead. You are the last one left.
+                Schmorn stares at the small ring in Oglunda's lifeless hand. There is nothing stopping him now. He can turn himself back into a human, regain his former glory, and rule the Grey Princedom once again. Perhaps there is something he had learned from all this, something that will make him a better ruler. Perhaps he will be able to change the way his subjects see him, and they will no longer fear him, but respect him.
+                
+                The door to the dungeon swings open, and outside stands a crowd of Schmorn's subjects. They see Oglunda's lifeless body, and they see Schmorn, the worm, holding the ring. They roar in anger, and before Schmorn gathers his bearings, they storm the dungeon, ready to kill him for what he has done. They throw stones and other objects at him, and Schmorn, unable to defend himself, is overwhelmed. He falls to the ground, and the crowd closes in on him.
+                
+                And so, Schmorn, the worm, dies in the Royal Dungeon, surrounded by his subjects, who have finally had enough of his tyranny. The Grey Princedom is free from his rule, and the people can finally live in peace.
                 """;
 
         var unknownCommandMessages = new String[]{
@@ -145,7 +149,14 @@ class Setup {
 
         var dungeonExit = new Room(
                 "Dungeon Exit",
-                "A way out. Are you certain you are ready to leave?"
+                "This is where it all ends. The exit from the Royal Dungeon, leading to the outside world.",
+                """
+                        As Schmorn exits the elevator, he isn't shocked to find Oglunda standing in the middle of the room, waiting for him, blocking the exit. She is holding a small, silver ring in her hand, the same one that Schmorn put on before he was transformed into a worm. The witch looks at him with a mixture of pity and disgust, and then she speaks.
+                    
+                        "And so, here you are, you determined failure of a man. You have made it this far, but you will not leave this place. Not as a worm, not as a prince, not as anything. I stand in your path, and I will not let you pass. You have made your choice, and now you must live with the consequences."
+                    
+                        Schmorn stares at her, fearful yet defiant. In his worm mouth, he holds the might Unbreakable Ladle, the most powerful weapon in his kingdom. He is ready to fight. Oglunda does not know what's coming.
+                        """
         );
 
         var royalWellCrossroadsPassage = new Passage("crack in the wall", true);
@@ -256,7 +267,7 @@ class Setup {
                 10
         );
         swordsmithRatsLair.addObject(sword);
-        
+
         var darkKey = new InventoryItem(
                 "dark key",
                 "a huge, menacing key, made out of black iron",
@@ -344,13 +355,18 @@ class Setup {
         var headChef = new Enemy(
                 "Head Chef",
                 "The head chef of the Royal Kitchens. He does not approve of visitors.",
-                10
+                15
         );
         pantry.setEnemy(headChef);
 
         var oglunda = new Enemy(
                 "Oglunda",
                 "The witch Oglunda, ruler of the Seven Swamps. She is the one who cursed Schmorn.",
+                """
+                        
+                        "It cannot be," the witch says, as Schmorn raises the Ladle. Her voice shakes as she realises the power of the weapon in his hands. "You have no right to wield it! You are not worthy!"
+                        
+                        Schmorn does not listen. He swings the Ladle with all his might, and the witch is thrown back, hitting the wall with a sickening thud. She falls to the ground, lifeless.""",
                 15,
                 true
         );

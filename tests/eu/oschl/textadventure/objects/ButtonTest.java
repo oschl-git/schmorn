@@ -7,6 +7,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for the Button class.
+ *
+ * @author Ondřej Schlaichert
+ */
 class ButtonTest extends BaseGameTest {
     private Blockage blockage;
     private Button button;

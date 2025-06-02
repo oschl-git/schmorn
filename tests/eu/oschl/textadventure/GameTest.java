@@ -11,6 +11,11 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for the Game class.
+ *
+ * @author Ondřej Schlaichert
+ */
 class GameTest extends BaseGameTest {
     @Test
     void testGameFieldsAreInitializedCorrectly() {

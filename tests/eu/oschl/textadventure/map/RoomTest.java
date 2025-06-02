@@ -8,6 +8,11 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for the Room class.
+ *
+ * @author Ondřej Schlaichert
+ */
 class RoomTest extends BaseGameTest {
     @Test
     void testConstructorInitializesFieldsWithEnterText() {
