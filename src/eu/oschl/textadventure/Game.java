@@ -63,10 +63,6 @@ public class Game {
         return previousPassages;
     }
 
-    public boolean isRunnning() {
-        return runnning;
-    }
-
     public boolean isRunning() {
         return runnning;
     }

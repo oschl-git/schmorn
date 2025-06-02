@@ -24,6 +24,7 @@ public class Enemy extends Entity {
         this.killText = killText;
         this.strength = strength;
         this.finalBoss = finalBoss;
+        alive = true;
     }
 
     public Enemy(String name, String description, int strength) {
@@ -33,6 +34,7 @@ public class Enemy extends Entity {
 
     public Enemy(String name, String description, int strength, boolean finalBoss) {
         this(name, description, null, strength, finalBoss);
+        alive = true;
     }
 
     public Optional<String> getKillText() {
