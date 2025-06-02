@@ -5,6 +5,12 @@ import eu.oschl.textadventure.map.Passage;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
+/**
+ * This command allows the player to explore the current room and its surroundings.
+ * It provides information about objects, passages, and enemies in the room.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Explore implements Command {
     private final Game game;
 

@@ -5,6 +5,14 @@ import eu.oschl.textadventure.objects.Button;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
+/**
+ * This command allows the player to press a button in the game.
+ * It checks if the specified object is a button and attempts to press it.
+ * If the button has already been pressed, it informs the player.
+ * If the object is not a button, it informs the player that it cannot be pressed.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class PressButton implements Command {
     private final Game game;
 

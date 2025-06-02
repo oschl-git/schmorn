@@ -97,6 +97,11 @@ public class Enter implements Command {
         printSuccessfulPassage(printEnterText);
     }
 
+    /**
+     * Prints a message indicating that the player has successfully passed through a passage.
+     *
+     * @param printEnterText whether to print the enter text of the current room
+     */
     private void printSuccessfulPassage(boolean printEnterText) {
         if (game.getLastPassage().isEmpty()) {
             throw new InvalidGameState("Last passages stack is empty even though a passage was passed");

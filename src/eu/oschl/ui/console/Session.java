@@ -5,6 +5,12 @@ import eu.oschl.ui.console.exceptions.InvalidInput;
 
 import java.util.Random;
 
+/**
+ * This class represents a game session in the console application.
+ * It processes user commands and handles the game loop.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Session {
     private final Game game;
     private final CommandProcessor commandProcessor;
@@ -16,6 +22,10 @@ public class Session {
         this.random = new Random();
     }
 
+    /**
+     * Starts the game session, displaying the prologue and entering the main game loop.
+     * The loop continues until the game is no longer running, after which it displays the epilogue and the game ends.
+     */
     public void start() {
         Console.print(game.getPrologue());
         Console.printLine();

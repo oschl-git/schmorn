@@ -4,6 +4,13 @@ import eu.oschl.textadventure.Game;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
+/**
+ * This command allows the player to use an item in the game.
+ * It checks if the specified item exists in the player's inventory and attempts to use it.
+ * If the item is used successfully, it displays a message; otherwise, it informs the player that the item cannot be used.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class UseItem implements Command {
     private final Game game;
 

@@ -5,6 +5,13 @@ import eu.oschl.textadventure.map.Passage;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
+/**
+ * This command allows the player to go back to the previous location in the game.
+ * It checks if there is a previous passage and allows the player to return to it.
+ * If there is no previous passage, it informs the player that they are at the starting point.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class GoBack implements Command {
     private final Game game;
 

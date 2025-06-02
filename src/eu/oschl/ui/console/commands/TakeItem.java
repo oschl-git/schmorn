@@ -6,6 +6,14 @@ import eu.oschl.textadventure.objects.Weapon;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
+/**
+ * This command allows the player to take an item from the current room.
+ * It checks if the specified object is pickable and attempts to pick it up.
+ * If the item is a weapon, it checks if it is stronger than the current one.
+ * If the item cannot be picked up, it informs the player accordingly.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class TakeItem implements Command {
     private final Game game;
 

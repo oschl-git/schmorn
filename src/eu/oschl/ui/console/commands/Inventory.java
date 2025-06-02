@@ -4,6 +4,13 @@ import eu.oschl.textadventure.Game;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
+/**
+ * This command allows the player to view their current inventory in the game.
+ * It displays all items and weapons the player possesses.
+ * If the inventory is empty, it informs the player accordingly.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Inventory implements Command {
     private final Game game;
 

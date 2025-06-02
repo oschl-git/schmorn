@@ -4,6 +4,15 @@ import eu.oschl.textadventure.Game;
 import eu.oschl.ui.console.Console;
 import eu.oschl.ui.console.ConsoleColor;
 
+/**
+ * This command allows the player to slay an enemy in the game.
+ * It checks if the specified enemy is present in the current room,
+ * and if the player has a weapon strong enough to defeat it.
+ * If successful, it displays a message indicating the enemy has been slain.
+ * If not, it informs the player why they cannot slay the enemy.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Slay implements Command {
     private final Game game;
 

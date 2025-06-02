@@ -5,6 +5,12 @@ import eu.oschl.ui.console.ConsoleColor;
 
 import java.util.ArrayList;
 
+/**
+ * This command displays a list of all available actions in the console application.
+ * It provides a way for users to see what commands they can use.
+ *
+ * @author Ondřej Schlaichert
+ */
 public class Help implements Command {
     private final ArrayList<Command> commands;
 

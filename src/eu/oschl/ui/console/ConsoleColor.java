@@ -1,5 +1,11 @@
 package eu.oschl.ui.console;
 
+/**
+ * This enum defines various console colors using ANSI escape codes.
+ * These colors can be used to format text output in the console.
+ *
+ * @author Ondřej Schlaichert
+ */
 public enum ConsoleColor {
     DEFAULT("\u001B[0m"),
     BLACK("\u001B[30m"),
