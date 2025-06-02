@@ -20,7 +20,7 @@ class Setup {
         var prologue = """
                 The sun sets over a misty day as the witch Oglunda, ruler of the Seven Swamps, rides her carriage down the Royal Road. An agreement has been made, and she comes now to fulfil her side of it.
                 
-                The prince is waiting. Face illuminated by flickering candlelight, Schmorn, high prince of  the Grey Princedom, stares out of the window of his highest tower and watches as the witch's carriage makes its way towards the gate. When the carriage stops, he signals the guards, who reluctantly raise the iron bars.
+                The prince is waiting. Face illuminated by flickering candlelight, Schmorn, high prince of the Grey Princedom, stares out of the window of his highest tower and watches as the witch's carriage makes its way towards the gate. When the carriage stops, he signals the guards, who reluctantly raise the iron bars.
                 
                 Moments later, Oglunda climbs the tower steps and enters. She sits across from the prince at a heavy wooden desk.
                 
